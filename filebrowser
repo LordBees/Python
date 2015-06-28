@@ -8,7 +8,8 @@ import os
 ##os.makedirs( path, 0755 )##creates nested dirs
 running = True
 cmd = '/'
- 
+def quickrd(f):
+ pass
 os.chdir('/')
 print(os.listdir())
 while running:
