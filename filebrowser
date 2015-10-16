@@ -22,7 +22,7 @@ while running:
                 line = f.readline()
                 if not line:
                     break
-                print (line)
+                print (line.strip('\n'))
             f.close()
         elif cmd == '//h':##help
             print('help menu')
