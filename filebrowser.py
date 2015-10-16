@@ -81,7 +81,9 @@ while running:
             print('existing drives',drvz)
                  
         else:
-            os.chdir(cmd)
-            print(os.listdir())
+            if os.listdir().count() >1:
+            else:
+               os.chdir(cmd)
+               print(os.listdir())
     except:
         print('ERROR INVALID COMMAND',cmd,'\n',os.listdir())
