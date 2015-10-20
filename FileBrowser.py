@@ -81,20 +81,22 @@ while running:
             print('existing drives',drvz)
                  
         else:
-            tempselcf =[]
-            tempcmdcf =''
-            if os.listdir().lower().count() >1:#.lower may not work
-                for item in os,listdir():
-                    if item == cmd:
-                        tempclf.append(item)
-                        print('there are conflicts with the current selection\nplease choose the path you were trying to enter')
-                        
-                for x in range(0,len(tempselcf)):##need iterationint
-                    print(str(x)+'.)  '+tempclf[x])
-                    
-            else:
-               os.chdir(cmd)
-               print(os.listdir())
+            os.chdir(cmd)
+            print(os.listdir())
+#            tempselcf =[]
+#            tempcmdcf =''
+#            if os.listdir().lower().count() > 1:#.lower may not work
+#                for item in os,listdir():
+#                    if item == cmd:
+#                        tempclf.append(item)
+#                        print('there are conflicts with the current selection\nplease choose the path you were trying to enter')
+#                        
+#                for x in range(0,len(tempselcf)):##need iterationint
+#                    print(str(x)+'.)  '+tempclf[x])
+#                    
+#            else:
+#               os.chdir(cmd)
+#               print(os.listdir())
     except:
         print('ERROR INVALID COMMAND',cmd,'\n',os.listdir())
 
