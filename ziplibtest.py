@@ -20,7 +20,7 @@ def ext2dir(fname,dname):
 #    with  as a:
     zipfl.extractall()
     
-def extract_all():
-    with zipfile.ZipFile("ds_dphs_csv.zip") as a:
+def extract_all(fname):
+    with zipfile.ZipFile(str(fname)+".zip") as a:
         a.extractall()
 ##testing push system
