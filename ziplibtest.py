@@ -14,11 +14,13 @@
 ##        a.extractall()
 import zipfile,os
 def ext2dir(fname,dname):
+    cwd = os.getcwd()
     zipfl = zipfile.ZipFile(os.getcwd()+'\\'+fname+".zip")
     os.mkdir(str(dname))
     os.chdir(str(dname))
 #    with  as a:
     zipfl.extractall()
+    os.chdir(cwd)
     
 def extract_all(fname):
     with zipfile.ZipFile(str(fname)+".zip") as a:
