@@ -26,3 +26,12 @@ def extract_all(fname):
     with zipfile.ZipFile(str(fname)+".zip") as a:
         a.extractall()
 ##testing push system
+def walkforzip():
+    for root, dirs, files in os.walk(".", topdown=False):
+        for name in files:
+            #break
+            print(os.path.join(root, name))
+        for name in dirs:
+            #break
+            print(os.path.join(root, name))
+            
