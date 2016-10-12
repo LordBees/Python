@@ -79,11 +79,15 @@ class main_win:
         primaryattributes_LF.place(x=50,y=50)
         
         #savingthrows_LF
-        inspiration_STR_BOX = Entry(self.This_win,width = 5,textvariable = self.inspiration_STR_BOX_VAR).pack()
-        inspiration_STR_LBL = Label(self.This_win,text = 'inspiration').pack()
-
-        proficiencybonus_STR_BOX = Entry(self.This_win,width = 5,textvariable = self.proficiencybonus_STR_BOX_VAR).pack()
-        proficiencybonus_STR_LBL = Label(self.This_win,text = 'Proficiency bonus').pack()
+        inspiration_LF = LabelFrame(self.This_win,text = 'inspiration points')
+        inspiration_STR_BOX = Entry(inspiration_LF,width = 5,textvariable = self.inspiration_STR_BOX_VAR).grid(row = 0,column=1)#.pack()
+        inspiration_STR_LBL = Label(inspiration_LF,text = 'inspiration').grid(row = 0,column=0)#.pack()
+        inspiration_LF.place(x=0,y=50)
+        
+        proficiencybonus_LF = LabelFrame(self.This_win,text = 'proficiency Bonus')
+        proficiencybonus_STR_BOX = Entry(proficiencybonus_LF,width = 5,textvariable = self.proficiencybonus_STR_BOX_VAR).grid(row = 1,column=1)#.pack()
+        proficiencybonus_STR_LBL = Label(proficiencybonus_LF,text = 'Proficiency bonus').grid(row = 1,column=0)#.pack()
+        proficiencybonus_LF.place(x=0,y=150)
         
         savingthrows_LF = LabelFrame(self.This_win,text = 'Saving\nThrows')
         savingthrows_STR_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_STR_CHK_VAR).pack()
