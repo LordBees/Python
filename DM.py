@@ -34,6 +34,13 @@ class main_win:
     primaryattributes_WIS_BOX_VAR = StringVar()
     primaryattributes_CHR_BOX_VAR = StringVar()
 
+    #roll modifier
+    primaryattributes_STR_MOD_BOX_VAR = StringVar()
+    primaryattributes_DEX_MOD_BOX_VAR = StringVar()
+    primaryattributes_CON_MOD_BOX_VAR = StringVar()
+    primaryattributes_INT_MOD_BOX_VAR = StringVar()
+    primaryattributes_WIS_MOD_BOX_VAR = StringVar()
+    primaryattributes_CHR_MOD_BOX_VAR = StringVar()
     ##inspiration
     inspiration_STR_BOX_VAR = StringVar()
     
@@ -81,53 +88,71 @@ class main_win:
 
         #primaryattributes_LF
         primaryattributes_LF = LabelFrame(self.This_win,text = 'primary\nattributes')
-        primaryattributes_STR_BOX = Entry(primaryattributes_LF,width = 5,textvariable = self.primaryattributes_STR_BOX_VAR).pack()
+        primaryattributes_STR_BOX = Entry(primaryattributes_LF,width = 3,textvariable = self.primaryattributes_STR_BOX_VAR).pack()
         primaryattributes_STR_LBL = Label(primaryattributes_LF,text = 'Strength').pack()
-        primaryattributes_DEX_BOX = Entry(primaryattributes_LF,width = 5,textvariable = self.primaryattributes_DEX_BOX_VAR).pack()
+        primaryattributes_DEX_BOX = Entry(primaryattributes_LF,width = 3,textvariable = self.primaryattributes_DEX_BOX_VAR).pack()
         primaryattributes_DEX_LBL = Label(primaryattributes_LF,text = 'Dexterity').pack()
-        primaryattributes_CON_BOX = Entry(primaryattributes_LF,width = 5,textvariable = self.primaryattributes_CON_BOX_VAR).pack()
+        primaryattributes_CON_BOX = Entry(primaryattributes_LF,width = 3,textvariable = self.primaryattributes_CON_BOX_VAR).pack()
         primaryattributes_CON_LBL = Label(primaryattributes_LF,text = 'Constitution').pack()
-        primaryattributes_INT_BOX = Entry(primaryattributes_LF,width = 5,textvariable = self.primaryattributes_INT_BOX_VAR).pack()
+        primaryattributes_INT_BOX = Entry(primaryattributes_LF,width = 3,textvariable = self.primaryattributes_INT_BOX_VAR).pack()
         primaryattributes_INT_LBL = Label(primaryattributes_LF,text = 'Intelligence').pack()
-        primaryattributes_WIS_BOX = Entry(primaryattributes_LF,width = 5,textvariable = self.primaryattributes_WIS_BOX_VAR).pack()
+        primaryattributes_WIS_BOX = Entry(primaryattributes_LF,width = 3,textvariable = self.primaryattributes_WIS_BOX_VAR).pack()
         primaryattributes_WIS_LBL = Label(primaryattributes_LF,text = 'Wisdom').pack()
-        primaryattributes_CHR_BOX = Entry(primaryattributes_LF,width = 5,textvariable = self.primaryattributes_CHR_BOX_VAR).pack()
+        primaryattributes_CHR_BOX = Entry(primaryattributes_LF,width = 3,textvariable = self.primaryattributes_CHR_BOX_VAR).pack()
         primaryattributes_CHR_LBL = Label(primaryattributes_LF,text = 'Charisma').pack()
-        primaryattributes_LF.place(x=50,y=50)
+        primaryattributes_LF.place(x=50,y=50)##was w3
+
+        ##roll modifier
+        #primaryattributes_LF
+        primaryattributes_MOD_LF = LabelFrame(self.This_win,text = 'Roll\nModifiers')
+        primaryattributes_STR_MOD_BOX = Entry(primaryattributes_MOD_LF,width = 5,textvariable = self.primaryattributes_STR_MOD_BOX_VAR).pack()
+        primaryattributes_STR_MOD_LBL = Label(primaryattributes_MOD_LF,text = 'Strength').pack()
+        primaryattributes_DEX_MOD_BOX = Entry(primaryattributes_MOD_LF,width = 5,textvariable = self.primaryattributes_DEX_MOD_BOX_VAR).pack()
+        primaryattributes_DEX_MOD_LBL = Label(primaryattributes_MOD_LF,text = 'Dexterity').pack()
+        primaryattributes_CON_MOD_BOX = Entry(primaryattributes_MOD_LF,width = 5,textvariable = self.primaryattributes_CON_MOD_BOX_VAR).pack()
+        primaryattributes_CON_MOD_LBL = Label(primaryattributes_MOD_LF,text = 'Constitution').pack()
+        primaryattributes_INT_MOD_BOX = Entry(primaryattributes_MOD_LF,width = 5,textvariable = self.primaryattributes_INT_MOD_BOX_VAR).pack()
+        primaryattributes_INT_MOD_LBL = Label(primaryattributes_MOD_LF,text = 'Intelligence').pack()
+        primaryattributes_WIS_MOD_BOX = Entry(primaryattributes_MOD_LF,width = 5,textvariable = self.primaryattributes_WIS_MOD_BOX_VAR).pack()
+        primaryattributes_WIS_MOD_LBL = Label(primaryattributes_MOD_LF,text = 'Wisdom').pack()
+        primaryattributes_CHR_MOD_BOX = Entry(primaryattributes_MOD_LF,width = 5,textvariable = self.primaryattributes_CHR_MOD_BOX_VAR).pack()
+        primaryattributes_CHR_MOD_LBL = Label(primaryattributes_MOD_LF,text = 'Charisma').pack()
+        primaryattributes_MOD_LF.place(x=125,y=50)
+
     
         ##inspiration_LF
-        inspiration_LF = LabelFrame(self.This_win,text = 'inspiration points')
+        inspiration_LF = LabelFrame(self.This_win,text = ' inspiration points ')
         inspiration_STR_BOX = Entry(inspiration_LF,width = 5,textvariable = self.inspiration_STR_BOX_VAR).grid(row = 0,column=1)#.pack()
-        inspiration_STR_LBL = Label(inspiration_LF,text = 'inspiration').grid(row = 0,column=0)#.pack()
-        inspiration_LF.place(x=0,y=50)
+        inspiration_STR_LBL = Label(inspiration_LF,text = 'inspiration            ').grid(row = 0,column=0)#.pack()
+        inspiration_LF.place(x=225,y=50)
 
         #proficiencybonus_LF
-        proficiencybonus_LF = LabelFrame(self.This_win,text = 'proficiency Bonus')
+        proficiencybonus_LF = LabelFrame(self.This_win,text = ' proficiency Bonus ')
         proficiencybonus_STR_BOX = Entry(proficiencybonus_LF,width = 5,textvariable = self.proficiencybonus_STR_BOX_VAR).grid(row = 1,column=1)#.pack()
         proficiencybonus_STR_LBL = Label(proficiencybonus_LF,text = 'Proficiency bonus').grid(row = 1,column=0)#.pack()
-        proficiencybonus_LF.place(x=0,y=150)
+        proficiencybonus_LF.place(x=225,y=90)
 
         #savingthrows_LF
-        savingthrows_LF = LabelFrame(self.This_win,text = 'Saving\nThrows')
-        savingthrows_STR_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_STR_CHK_VAR).pack()
-        savingthrows_STR_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_STR_BOX_VAR).pack()
-        savingthrows_STR_LBL = Label(savingthrows_LF,text = 'Strength').pack()
-        savingthrows_DEX_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_DEX_CHK_VAR).pack()
-        savingthrows_DEX_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_DEX_BOX_VAR).pack()
-        savingthrows_DEX_LBL = Label(savingthrows_LF,text = 'Dexterity').pack()
-        savingthrows_CON_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_CON_CHK_VAR).pack()
-        savingthrows_CON_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_CON_BOX_VAR).pack()
-        savingthrows_CON_LBL = Label(savingthrows_LF,text = 'Constitution').pack()
-        savingthrows_INT_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_INT_CHK_VAR).pack()
-        savingthrows_INT_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_INT_BOX_VAR).pack()
-        savingthrows_INT_LBL = Label(savingthrows_LF,text = 'Intelligence').pack()
-        savingthrows_WIS_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_WIS_CHK_VAR).pack()
-        savingthrows_WIS_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_WIS_BOX_VAR).pack()
-        savingthrows_WIS_LBL = Label(savingthrows_LF,text = 'Wisdom').pack()
-        savingthrows_CHR_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_CHR_CHK_VAR).pack()
-        savingthrows_CHR_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_CHR_BOX_VAR).pack()
-        savingthrows_CHR_LBL = Label(savingthrows_LF,text = 'Charisma').pack()
-        savingthrows_LF.place(x=150,y=50)
+        savingthrows_LF = LabelFrame(self.This_win,text = 'Saving Throws')
+        savingthrows_STR_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_STR_CHK_VAR).grid(row = 0,column=0)#.pack()
+        savingthrows_STR_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_STR_BOX_VAR).grid(row = 0,column=1)#.pack()
+        savingthrows_STR_LBL = Label(savingthrows_LF,text = 'Strength')                                     .grid(row = 0,column=2)#.pack()
+        savingthrows_DEX_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_DEX_CHK_VAR).grid(row = 1,column=0)#.pack()
+        savingthrows_DEX_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_DEX_BOX_VAR).grid(row = 1,column=1)#.pack()
+        savingthrows_DEX_LBL = Label(savingthrows_LF,text = 'Dexterity')                                    .grid(row = 1,column=2)#.pack()
+        savingthrows_CON_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_CON_CHK_VAR).grid(row = 2,column=0)#.pack()
+        savingthrows_CON_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_CON_BOX_VAR).grid(row = 2,column=1)#.pack()
+        savingthrows_CON_LBL = Label(savingthrows_LF,text = 'Constitution')                                 .grid(row = 2,column=2)#.pack()
+        savingthrows_INT_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_INT_CHK_VAR).grid(row = 3,column=0)#.pack()
+        savingthrows_INT_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_INT_BOX_VAR).grid(row = 3,column=1)#.pack()
+        savingthrows_INT_LBL = Label(savingthrows_LF,text = 'Intelligence')                                 .grid(row = 3,column=2)#.pack()
+        savingthrows_WIS_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_WIS_CHK_VAR).grid(row = 4,column=0)#.pack()
+        savingthrows_WIS_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_WIS_BOX_VAR).grid(row = 4,column=1)#.pack()
+        savingthrows_WIS_LBL = Label(savingthrows_LF,text = 'Wisdom')                                       .grid(row = 4,column=2)#.pack()
+        savingthrows_CHR_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_CHR_CHK_VAR).grid(row = 5,column=0)#.pack()
+        savingthrows_CHR_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_CHR_BOX_VAR).grid(row = 5,column=1)#.pack()
+        savingthrows_CHR_LBL = Label(savingthrows_LF,text = 'Charisma')                                     .grid(row = 5,column=2)#.pack()
+        savingthrows_LF.place(x=225,y=130)
 
         #secondaryskills_LF
         secondaryskills_LF = LabelFrame(self.This_win,text = 'skills')
@@ -185,7 +210,7 @@ class main_win:
         secondaryskills_SRV_CHK = Checkbutton(secondaryskills_LF).grid(row=17,column=0)#.pack()
         secondaryskills_SRV_BOX = Entry(secondaryskills_LF,width = 5).grid(row=17,column=1)#.pack()
         secondaryskills_SRV_LBL = Label(secondaryskills_LF,text = 'survival').grid(row=17,column=2)#.pack()
-        secondaryskills_LF.place(x=150,y=50)        
+        secondaryskills_LF.place(x=225,y=300)        
         
         HPmiscskills_LF = LabelFrame(self.This_win,text = 'HP/misc')
         HPmiscskills_AMC_BOX = Entry(HPmiscskills_LF,width = 5)             .grid(row=1,column=0)#.pack()
@@ -201,7 +226,24 @@ class main_win:
         HPmiscskills_HTP_LBL = Label(HPmiscskills_LF,text = 'temp HP')        .grid(row=5,column=0)#.pack()
         HPmiscskills_HCR_BOX = Entry(HPmiscskills_LF,width = 4)              .grid(row=6,column=1)#.pack()
         HPmiscskills_HCR_LBL = Label(HPmiscskills_LF,text = 'current HP')        .grid(row=6,column=0)#.pack()
-        HPmiscskills_LF.place(x=400,y=50)
+        HPmiscskills_LF.place(x=375,y=50)
+
+        ##hitdicedeathsave
+        #diceandsavesmisc
+        diceandsavesmisc_LF = LabelFrame(self.This_win,text = 'dice/death saves')
+        diceandsavesmisc_HTD_BOX = Entry(diceandsavesmisc_LF,width = 5)             .grid(row=1,column=0)#.pack()
+        diceandsavesmisc_HTD_LBL = Label(diceandsavesmisc_LF,text = 'hit dice') .grid(row=0,column=0)#.pack()
+        diceandsavesmisc_DTO_BOX = Entry(diceandsavesmisc_LF,width = 5)             .grid(row=3,column=0)#.pack()
+        diceandsavesmisc_DTO_LBL = Label(diceandsavesmisc_LF,text = 'dice total')   .grid(row=2,column=0)#.pack()
+        diceandsavesmisc_DSS_LBL = Label(diceandsavesmisc_LF,text = 'sucesses')        .grid(row=1,column=1)#.pack()
+        diceandsavesmisc_DS1_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=1,column=2)#.pack()
+        diceandsavesmisc_DS2_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=1,column=3)#.pack()
+        diceandsavesmisc_DS3_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=1,column=4)#.pack()
+        diceandsavesmisc_DSF_LBL = Label(diceandsavesmisc_LF,text = 'fails')        .grid(row=2,column=1)#.pack()
+        diceandsavesmisc_DF1_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=2)#.pack()
+        diceandsavesmisc_DF2_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=3)#.pack()
+        diceandsavesmisc_DF3_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=4)#.pack()
+        diceandsavesmisc_LF.place(x=375,y=175)
 
         
         attackplusspells_LF = LabelFrame(self.This_win,text = 'attack/magic stats')
@@ -220,9 +262,9 @@ class main_win:
         attackplusspells_NTS_LF =  LabelFrame(self.This_win,text = 'atk/mag notes')#position by magic/stats
         self.attackplusspells_MSC_TXT = Text(attackplusspells_NTS_LF,height = 25,width = 25)
         self.attackplusspells_MSC_TXT                                                                                                .grid(row=4,column=0)#.pack() ##was height 10
-        attackplusspells_NTS_LF.place(x=450,y=500)
+        #attackplusspells_NTS_LF.place(x=450,y=500)
         #add txt to fill spaces
-        attackplusspells_LF.place(x=300,y=150)
+        #attackplusspells_LF.place(x=300,y=150)
 
         ###print(self.get_primaryattributes())
         ##print(self.get_savingthrows())
@@ -241,6 +283,13 @@ class main_win:
                 self.primaryattributes_INT_BOX_VAR.get(),
                 self.primaryattributes_WIS_BOX_VAR.get(),
                 self.primaryattributes_CHR_BOX_VAR.get()]
+    def get_rollmod(self):
+        return[ self.primaryattributes_STR_MOD_BOX_VAR.get(),
+                self.primaryattributes_DEX_MOD_BOX_VAR.get(),
+                self.primaryattributes_CON_MOD_BOX_VAR.get(),
+                self.primaryattributes_INT_MOD_BOX_VAR.get(),
+                self.primaryattributes_WIS_MOD_BOX_VAR.get(),
+                self.primaryattributes_CHR_MOD_BOX_VAR.get()]
     def get_inspiration(self):
         return self.inspiration_STR_BOX_VAR.get()
     def get_proficiencybonus(self):
@@ -290,7 +339,36 @@ class main_win:
         return [self.get_attackplusspells_VAR(),self.get_attackplusspells_TXT()]
             
             
-            
+class dicewin:
+    #This_win = Toplevel()
+    #print('init')
+    
+    def __init__(self):
+        This_win = Toplevel()
+        This_win.title('Dice roller')
+        This_win.geometry('640x720')
+        ##widgets
+        Diceroller_LF = LabelFrame(This_win)
+        Diceroller_DXX_LBL = Label(Diceroller_LF,text = 'select a dice').grid()
+        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)##dicetypes
+        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)
+        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)
+        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)
+        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)
+        Diceroller_LF.place(x=50,y=50)
+        
+        ## post widget code
+        self.This_win.after(1500,self.Alt_loop)
+        self.This_win.mainloop()
+
+    def roll_die(self):##maybe problem
+        
+
+    def Alt_loop(self):
+        ##additional event loop code here
+        print(self.get_attackplusspells())
+        ##end
+        self.This_win.after(1500,self.Alt_loop)
             
             
             
