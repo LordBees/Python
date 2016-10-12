@@ -57,12 +57,29 @@ class main_win:
 
     
     ##secondary skills
+    
+    ##hpmiscskills
+     #attackplusspells
+    attackplusspells_WN1_BOX_VAR = StringVar()
+    attackplusspells_WN2_BOX_VAR = StringVar()
+    attackplusspells_WN3_BOX_VAR = StringVar()
+     #atk bonus
+    attackplusspells_AB1_BOX_VAR = StringVar()
+    attackplusspells_AB2_BOX_VAR = StringVar()
+    attackplusspells_AB3_BOX_VAR = StringVar()
+     #damage/type
+    attackplusspells_DT1_BOX_VAR = StringVar()
+    attackplusspells_DT2_BOX_VAR = StringVar()
+    attackplusspells_DT3_BOX_VAR = StringVar()
+    attackplusspells_MSC_TXT = StringVar()##hack for getting data out of text box(assigned as stringvar temp to ensure .get() can be found
 
     def __init__(self):
         
         self.This_win.title('Dungeon Master v1')
         self.This_win.geometry('640x720')
         ##widgets
+
+        #primaryattributes_LF
         primaryattributes_LF = LabelFrame(self.This_win,text = 'primary\nattributes')
         primaryattributes_STR_BOX = Entry(primaryattributes_LF,width = 5,textvariable = self.primaryattributes_STR_BOX_VAR).pack()
         primaryattributes_STR_LBL = Label(primaryattributes_LF,text = 'Strength').pack()
@@ -77,18 +94,20 @@ class main_win:
         primaryattributes_CHR_BOX = Entry(primaryattributes_LF,width = 5,textvariable = self.primaryattributes_CHR_BOX_VAR).pack()
         primaryattributes_CHR_LBL = Label(primaryattributes_LF,text = 'Charisma').pack()
         primaryattributes_LF.place(x=50,y=50)
-        
-        #savingthrows_LF
+    
+        ##inspiration_LF
         inspiration_LF = LabelFrame(self.This_win,text = 'inspiration points')
         inspiration_STR_BOX = Entry(inspiration_LF,width = 5,textvariable = self.inspiration_STR_BOX_VAR).grid(row = 0,column=1)#.pack()
         inspiration_STR_LBL = Label(inspiration_LF,text = 'inspiration').grid(row = 0,column=0)#.pack()
         inspiration_LF.place(x=0,y=50)
-        
+
+        #proficiencybonus_LF
         proficiencybonus_LF = LabelFrame(self.This_win,text = 'proficiency Bonus')
         proficiencybonus_STR_BOX = Entry(proficiencybonus_LF,width = 5,textvariable = self.proficiencybonus_STR_BOX_VAR).grid(row = 1,column=1)#.pack()
         proficiencybonus_STR_LBL = Label(proficiencybonus_LF,text = 'Proficiency bonus').grid(row = 1,column=0)#.pack()
         proficiencybonus_LF.place(x=0,y=150)
-        
+
+        #savingthrows_LF
         savingthrows_LF = LabelFrame(self.This_win,text = 'Saving\nThrows')
         savingthrows_STR_CHK = Checkbutton(savingthrows_LF,variable =           self.savingthrows_STR_CHK_VAR).pack()
         savingthrows_STR_BOX = Entry(savingthrows_LF,width = 5,textvariable =   self.savingthrows_STR_BOX_VAR).pack()
@@ -110,7 +129,7 @@ class main_win:
         savingthrows_CHR_LBL = Label(savingthrows_LF,text = 'Charisma').pack()
         savingthrows_LF.place(x=150,y=50)
 
-        #secondaryskills
+        #secondaryskills_LF
         secondaryskills_LF = LabelFrame(self.This_win,text = 'skills')
         secondaryskills_ACR_CHK = Checkbutton(secondaryskills_LF).grid(row=0,column=0)#).pack(side=LEFT)
         secondaryskills_ACR_BOX = Entry(secondaryskills_LF,width = 5).grid(row=0,column=1)#.pack()
@@ -175,32 +194,46 @@ class main_win:
         HPmiscskills_INI_LBL = Label(HPmiscskills_LF,text = 'initiative')   .grid(row=0,column=1)#.pack()
         HPmiscskills_SPD_BOX = Entry(HPmiscskills_LF,width = 5)             .grid(row=1,column=2)#.pack()
         HPmiscskills_SPD_LBL = Label(HPmiscskills_LF,text = 'Speed')        .grid(row=0,column=2)#.pack()
-        HPmiscskills_HMX_BOX = Entry(HPmiscskills_LF,width = 5)             .grid(row=2,column=1)#.pack()
-        HPmiscskills_HMX_LBL = Label(HPmiscskills_LF,text = 'MAX hp')        .grid(row=2,column=0)#.pack()
-        HPmiscskills_HTP_BOX = Entry(HPmiscskills_LF,width = 5)             .grid(row=1,column=2)#.pack()
-        HPmiscskills_HTP_LBL = Label(HPmiscskills_LF,text = 'temp HP')        .grid(row=0,column=2)#.pack()
-        HPmiscskills_LF.place(x=300,y=50)
+        
+        HPmiscskills_HMX_BOX = Entry(HPmiscskills_LF,width = 4)             .grid(row=4,column=1)#.pack()
+        HPmiscskills_HMX_LBL = Label(HPmiscskills_LF,text = 'MAX HP')        .grid(row=4,column=0)#.pack()
+        HPmiscskills_HTP_BOX = Entry(HPmiscskills_LF,width = 4)              .grid(row=5,column=1)#.pack()
+        HPmiscskills_HTP_LBL = Label(HPmiscskills_LF,text = 'temp HP')        .grid(row=5,column=0)#.pack()
+        HPmiscskills_HCR_BOX = Entry(HPmiscskills_LF,width = 4)              .grid(row=6,column=1)#.pack()
+        HPmiscskills_HCR_LBL = Label(HPmiscskills_LF,text = 'current HP')        .grid(row=6,column=0)#.pack()
+        HPmiscskills_LF.place(x=400,y=50)
 
+        
         attackplusspells_LF = LabelFrame(self.This_win,text = 'attack/magic stats')
         attackplusspells_WNM_LBL = Label(attackplusspells_LF,text = 'name') .grid(row=0,column=0)#.pack()
-        attackplusspells_WN1_BOX = Entry(attackplusspells_LF,width = 7)             .grid(row=1,column=0)#.pack()
-        attackplusspells_WN2_BOX = Entry(attackplusspells_LF,width = 7)             .grid(row=2,column=0)#.pack()
-        attackplusspells_WN3_BOX = Entry(attackplusspells_LF,width = 7)             .grid(row=3,column=0)#.pack()
+        attackplusspells_WN1_BOX = Entry(attackplusspells_LF,width = 7,textvariable = self.attackplusspells_WN1_BOX_VAR)             .grid(row=1,column=0)#.pack()
+        attackplusspells_WN2_BOX = Entry(attackplusspells_LF,width = 7,textvariable = self.attackplusspells_WN2_BOX_VAR)             .grid(row=2,column=0)#.pack()
+        attackplusspells_WN3_BOX = Entry(attackplusspells_LF,width = 7,textvariable = self.attackplusspells_WN3_BOX_VAR)             .grid(row=3,column=0)#.pack()
         attackplusspells_ATK_LBL = Label(attackplusspells_LF,text = 'atk bonus') .grid(row=0,column=1)#.pack()
-        attackplusspells_AB1_BOX = Entry(attackplusspells_LF,width = 3)             .grid(row=1,column=1)#.pack()
-        attackplusspells_AB2_BOX = Entry(attackplusspells_LF,width = 3)             .grid(row=2,column=1)#.pack()
-        attackplusspells_AB3_BOX = Entry(attackplusspells_LF,width = 3)             .grid(row=3,column=1)#.pack()
+        attackplusspells_AB1_BOX = Entry(attackplusspells_LF,width = 3,textvariable = self.attackplusspells_AB1_BOX_VAR)             .grid(row=1,column=1)#.pack()
+        attackplusspells_AB2_BOX = Entry(attackplusspells_LF,width = 3,textvariable = self.attackplusspells_AB1_BOX_VAR)             .grid(row=2,column=1)#.pack()
+        attackplusspells_AB3_BOX = Entry(attackplusspells_LF,width = 3,textvariable = self.attackplusspells_AB1_BOX_VAR)             .grid(row=3,column=1)#.pack()
         attackplusspells_DTY_LBL = Label(attackplusspells_LF,text = 'damage/type') .grid(row=0,column=2)#.pack()
-        attackplusspells_DT1_BOX = Entry(attackplusspells_LF,width = 9)             .grid(row=1,column=2)#.pack()
-        attackplusspells_DT2_BOX = Entry(attackplusspells_LF,width = 9)             .grid(row=2,column=2)#.pack()
-        attackplusspells_DT3_BOX = Entry(attackplusspells_LF,width = 9)             .grid(row=3,column=2)#.pack()
-
+        attackplusspells_DT1_BOX = Entry(attackplusspells_LF,width = 9,textvariable = self.attackplusspells_DT1_BOX_VAR)             .grid(row=1,column=2)#.pack()
+        attackplusspells_DT2_BOX = Entry(attackplusspells_LF,width = 9,textvariable = self.attackplusspells_DT1_BOX_VAR)             .grid(row=2,column=2)#.pack()
+        attackplusspells_DT3_BOX = Entry(attackplusspells_LF,width = 9,textvariable = self.attackplusspells_DT1_BOX_VAR)             .grid(row=3,column=2)#.pack()
+        attackplusspells_NTS_LF =  LabelFrame(self.This_win,text = 'atk/mag notes')#position by magic/stats
+        self.attackplusspells_MSC_TXT = Text(attackplusspells_NTS_LF,height = 25,width = 25)
+        self.attackplusspells_MSC_TXT                                                                                                .grid(row=4,column=0)#.pack() ##was height 10
+        attackplusspells_NTS_LF.place(x=450,y=500)
         #add txt to fill spaces
         attackplusspells_LF.place(x=300,y=150)
 
-        ##print(self.get_primaryattributes())
-        #print(self.get_savingthrows())
+        ###print(self.get_primaryattributes())
+        ##print(self.get_savingthrows())
+        #print(self.attackplusspells_MSC_TXT)
+        self.This_win.after(1500,self.Alt_loop)
         self.This_win.mainloop()
+    def Alt_loop(self):
+        ##additional event loop code here
+        print(self.get_attackplusspells())
+        ##end
+        self.This_win.after(1500,self.Alt_loop)
     def get_primaryattributes(self):
         return[ self.primaryattributes_STR_BOX_VAR.get(),
                 self.primaryattributes_DEX_BOX_VAR.get(),
@@ -220,6 +253,41 @@ class main_win:
             (self.savingthrows_INT_CHK_VAR.get(),self.savingthrows_INT_BOX_VAR.get()),
             (self.savingthrows_WIS_CHK_VAR.get(),self.savingthrows_WIS_BOX_VAR.get()),
             (self.savingthrows_CHR_CHK_VAR.get(),self.savingthrows_CHR_BOX_VAR.get())]##return tuples of each attribute(proficient,throw)
+    def get_secondaryskills(self):
+        pass
+    def get_hpmiscskills(self):
+        pass
+    def get_attackplusspells_VAR(self):#[weaps/notes][data][weapno]
+                                       #weapno
+                                       #1=name
+                                       #2=attack bonus
+                                       #3=damagetype
+        return[
+        ##name
+            [
+                self.attackplusspells_WN1_BOX_VAR.get(),
+                self.attackplusspells_WN2_BOX_VAR.get(),
+                self.attackplusspells_WN3_BOX_VAR.get()
+            ],
+        ##atk bonus
+            [
+                self.attackplusspells_AB1_BOX_VAR.get(),
+                self.attackplusspells_AB2_BOX_VAR.get(),
+                self.attackplusspells_AB3_BOX_VAR.get()
+            ],
+        ##damage/type
+            [
+                self.attackplusspells_DT1_BOX_VAR.get(),
+                self.attackplusspells_DT2_BOX_VAR.get(),
+                self.attackplusspells_DT3_BOX_VAR.get()
+            ]]
+        #text hack
+        #self.attackplusspells_MSC_TXT
+    def get_attackplusspells_TXT(self):
+        #text hack
+        return self.attackplusspells_MSC_TXT.get(1.0, 'end-1c')##char1 2 end
+    def get_attackplusspells(self):
+        return [self.get_attackplusspells_VAR(),self.get_attackplusspells_TXT()]
             
             
             
