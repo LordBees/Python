@@ -1,5 +1,5 @@
 ##d&d char she
-import os,sys
+import os,sys,random
 from tkinter import *
 
 ##tkclass##
@@ -64,6 +64,43 @@ class main_win:
 
     
     ##secondary skills
+    secondaryskills_ACR_CHK_VAR = IntVar()
+    secondaryskills_ACR_BOX_VAR = StringVar()
+    secondaryskills_ANH_CHK_VAR = IntVar()
+    secondaryskills_ANH_BOX_VAR = StringVar()
+    secondaryskills_ARC_CHK_VAR = IntVar()
+    secondaryskills_ARC_BOX_VAR = StringVar()
+    secondaryskills_ATH_CHK_VAR = IntVar()
+    secondaryskills_ATH_BOX_VAR = StringVar()
+    secondaryskills_DEC_CHK_VAR = IntVar()
+    secondaryskills_DEC_BOX_VAR = StringVar()
+    secondaryskills_HIS_CHK_VAR = IntVar()
+    secondaryskills_HIS_BOX_VAR = StringVar()
+    secondaryskills_CHR_CHK_VAR = IntVar()
+    secondaryskills_CHR_BOX_VAR = StringVar()
+    secondaryskills_IDT_CHK_VAR = IntVar()
+    secondaryskills_IDT_BOX_VAR = StringVar()
+    secondaryskills_INV_CHK_VAR = IntVar()
+    secondaryskills_INV_BOX_VAR = StringVar()
+    secondaryskills_MED_CHK_VAR = IntVar()
+    secondaryskills_MED_BOX_VAR = StringVar()
+    secondaryskills_NAT_CHK_VAR = IntVar()
+    secondaryskills_NAT_BOX_VAR = StringVar()
+    secondaryskills_PER_CHK_VAR = IntVar()
+    secondaryskills_PER_BOX_VAR = StringVar()
+    secondaryskills_PRF_CHK_VAR = IntVar()
+    secondaryskills_PRF_BOX_VAR = StringVar()
+    secondaryskills_PRS_CHK_VAR = IntVar()
+    secondaryskills_PRS_BOX_VAR = StringVar()
+    secondaryskills_REL_CHK_VAR = IntVar()
+    secondaryskills_REL_BOX_VAR = StringVar()
+    secondaryskills_SOH_CHK_VAR = IntVar()
+    secondaryskills_SOH_BOX_VAR = StringVar()
+    secondaryskills_STE_CHK_VAR = IntVar()
+    secondaryskills_STE_BOX_VAR = StringVar()
+    secondaryskills_SRV_CHK_VAR = IntVar()
+    secondaryskills_SRV_BOX_VAR = StringVar()
+
     
     ##hpmiscskills
      #attackplusspells
@@ -156,59 +193,59 @@ class main_win:
 
         #secondaryskills_LF
         secondaryskills_LF = LabelFrame(self.This_win,text = 'skills')
-        secondaryskills_ACR_CHK = Checkbutton(secondaryskills_LF).grid(row=0,column=0)#).pack(side=LEFT)
-        secondaryskills_ACR_BOX = Entry(secondaryskills_LF,width = 5).grid(row=0,column=1)#.pack()
+        secondaryskills_ACR_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_ACR_CHK_VAR).grid(row=0,column=0)#).pack(side=LEFT)
+        secondaryskills_ACR_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_ACR_BOX_VAR).grid(row=0,column=1)#.pack()
         secondaryskills_ACR_LBL = Label(secondaryskills_LF,text = 'acrobatics').grid(row=0,column=2)#.pack()
-        secondaryskills_ANH_CHK = Checkbutton(secondaryskills_LF).grid(row=1,column=0)#.pack()
-        secondaryskills_ANH_BOX = Entry(secondaryskills_LF,width = 5).grid(row=1,column=1)#.pack()
+        secondaryskills_ANH_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_ANH_CHK_VAR).grid(row=1,column=0)#.pack()
+        secondaryskills_ANH_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_ANH_BOX_VAR).grid(row=1,column=1)#.pack()
         secondaryskills_ANH_LBL = Label(secondaryskills_LF,text = 'animal handling').grid(row=1,column=2)#.pack()
-        secondaryskills_ARC_CHK = Checkbutton(secondaryskills_LF).grid(row=2,column=0)#.pack()
-        secondaryskills_ARC_BOX = Entry(secondaryskills_LF,width = 5).grid(row=2,column=1)#.pack()
+        secondaryskills_ARC_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_ARC_CHK_VAR).grid(row=2,column=0)#.pack()
+        secondaryskills_ARC_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_ARC_BOX_VAR).grid(row=2,column=1)#.pack()
         secondaryskills_ARC_LBL = Label(secondaryskills_LF,text = 'arcana').grid(row=2,column=2)#.pack()
-        secondaryskills_ATH_CHK = Checkbutton(secondaryskills_LF).grid(row=3,column=0)#.pack()
-        secondaryskills_ATH_BOX = Entry(secondaryskills_LF,width = 5).grid(row=3,column=1)#.pack()
+        secondaryskills_ATH_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_ATH_CHK_VAR).grid(row=3,column=0)#.pack()
+        secondaryskills_ATH_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_ATH_BOX_VAR).grid(row=3,column=1)#.pack()
         secondaryskills_ATH_LBL = Label(secondaryskills_LF,text = 'athletics').grid(row=3,column=2)#.pack()
-        secondaryskills_DEC_CHK = Checkbutton(secondaryskills_LF).grid(row=4,column=0)#.pack()
-        secondaryskills_DEC_BOX = Entry(secondaryskills_LF,width = 5).grid(row=4,column=1)#.pack()
+        secondaryskills_DEC_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_DEC_CHK_VAR).grid(row=4,column=0)#.pack()
+        secondaryskills_DEC_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_DEC_BOX_VAR).grid(row=4,column=1)#.pack()
         secondaryskills_DEC_LBL = Label(secondaryskills_LF,text = 'deception').grid(row=4,column=2)#.pack()
-        secondaryskills_HIS_CHK = Checkbutton(secondaryskills_LF).grid(row=5,column=0)#.pack()
-        secondaryskills_HIS_BOX = Entry(secondaryskills_LF,width = 5).grid(row=5,column=1)#.pack()
+        secondaryskills_HIS_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_HIS_CHK_VAR).grid(row=5,column=0)#.pack()
+        secondaryskills_HIS_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_HIS_BOX_VAR).grid(row=5,column=1)#.pack()
         secondaryskills_HIS_LBL = Label(secondaryskills_LF,text = 'history').grid(row=5,column=2)#.pack()
-        secondaryskills_CHR_CHK = Checkbutton(secondaryskills_LF).grid(row=6,column=0)#.pack()
-        secondaryskills_CHR_BOX = Entry(secondaryskills_LF,width = 5).grid(row=6,column=1)#.pack()
+        secondaryskills_CHR_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_CHR_CHK_VAR).grid(row=6,column=0)#.pack()
+        secondaryskills_CHR_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_CHR_BOX_VAR).grid(row=6,column=1)#.pack()
         secondaryskills_CHR_LBL = Label(secondaryskills_LF,text = 'insight').grid(row=6,column=2)#.pack()
-        secondaryskills_IDT_CHK = Checkbutton(secondaryskills_LF).grid(row=7,column=0)#.pack()
-        secondaryskills_IDT_BOX = Entry(secondaryskills_LF,width = 5).grid(row=7,column=1)#.pack()
+        secondaryskills_IDT_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_IDT_CHK_VAR).grid(row=7,column=0)#.pack()
+        secondaryskills_IDT_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_IDT_BOX_VAR).grid(row=7,column=1)#.pack()
         secondaryskills_IDT_LBL = Label(secondaryskills_LF,text = 'intimidation').grid(row=7,column=2)#.pack()
-        secondaryskills_INV_CHK = Checkbutton(secondaryskills_LF).grid(row=8,column=0)#.pack()
-        secondaryskills_INV_BOX = Entry(secondaryskills_LF,width = 5).grid(row=8,column=1)#.pack()
+        secondaryskills_INV_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_INV_CHK_VAR).grid(row=8,column=0)#.pack()
+        secondaryskills_INV_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_INV_BOX_VAR).grid(row=8,column=1)#.pack()
         secondaryskills_INV_LBL = Label(secondaryskills_LF,text = 'investigation').grid(row=8,column=2)#.pack()
-        secondaryskills_MED_CHK = Checkbutton(secondaryskills_LF).grid(row=9,column=0)#.pack()
-        secondaryskills_MED_BOX = Entry(secondaryskills_LF,width = 5).grid(row=9,column=1)#.pack()
+        secondaryskills_MED_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_MED_CHK_VAR).grid(row=9,column=0)#.pack()
+        secondaryskills_MED_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_MED_BOX_VAR).grid(row=9,column=1)#.pack()
         secondaryskills_MED_LBL = Label(secondaryskills_LF,text = 'medicine').grid(row=9,column=2)#.pack()
-        secondaryskills_NAT_CHK = Checkbutton(secondaryskills_LF).grid(row=10,column=0)#.pack()
-        secondaryskills_NAT_BOX = Entry(secondaryskills_LF,width = 5).grid(row=10,column=1)#.pack()
+        secondaryskills_NAT_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_NAT_CHK_VAR).grid(row=10,column=0)#.pack()
+        secondaryskills_NAT_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_NAT_BOX_VAR).grid(row=10,column=1)#.pack()
         secondaryskills_NAT_LBL = Label(secondaryskills_LF,text = 'nature').grid(row=10,column=2)#.pack()
-        secondaryskills_PER_CHK = Checkbutton(secondaryskills_LF).grid(row=11,column=0)#.pack()
-        secondaryskills_PER_BOX = Entry(secondaryskills_LF,width = 5).grid(row=11,column=1)#.pack()
+        secondaryskills_PER_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_PER_CHK_VAR).grid(row=11,column=0)#.pack()
+        secondaryskills_PER_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_PER_BOX_VAR).grid(row=11,column=1)#.pack()
         secondaryskills_PER_LBL = Label(secondaryskills_LF,text = 'perception').grid(row=11,column=2)#.pack()
-        secondaryskills_PRF_CHK = Checkbutton(secondaryskills_LF).grid(row=12,column=0)#.pack()
-        secondaryskills_PRF_BOX = Entry(secondaryskills_LF,width = 5).grid(row=12,column=1)#.pack()
+        secondaryskills_PRF_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_PRF_CHK_VAR).grid(row=12,column=0)#.pack()
+        secondaryskills_PRF_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_PRF_BOX_VAR).grid(row=12,column=1)#.pack()
         secondaryskills_PRF_LBL = Label(secondaryskills_LF,text = 'performance').grid(row=12,column=2)#.pack()
-        secondaryskills_PRS_CHK = Checkbutton(secondaryskills_LF).grid(row=13,column=0)#.pack()
-        secondaryskills_PRS_BOX = Entry(secondaryskills_LF,width = 5).grid(row=13,column=1)#.pack()
+        secondaryskills_PRS_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_PRS_CHK_VAR).grid(row=13,column=0)#.pack()
+        secondaryskills_PRS_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_PRS_BOX_VAR).grid(row=13,column=1)#.pack()
         secondaryskills_PRS_LBL = Label(secondaryskills_LF,text = 'persuasion').grid(row=13,column=2)#.pack()
-        secondaryskills_REL_CHK = Checkbutton(secondaryskills_LF).grid(row=14,column=0)#.pack()
-        secondaryskills_REL_BOX = Entry(secondaryskills_LF,width = 5).grid(row=14,column=1)#.pack()
+        secondaryskills_REL_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_REL_CHK_VAR).grid(row=14,column=0)#.pack()
+        secondaryskills_REL_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_REL_BOX_VAR).grid(row=14,column=1)#.pack()
         secondaryskills_REL_LBL = Label(secondaryskills_LF,text = 'religion').grid(row=14,column=2)#.pack()
-        secondaryskills_SOH_CHK = Checkbutton(secondaryskills_LF).grid(row=15,column=0)#.pack()
-        secondaryskills_SOH_BOX = Entry(secondaryskills_LF,width = 5).grid(row=15,column=1)#.pack()
+        secondaryskills_SOH_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_SOH_CHK_VAR).grid(row=15,column=0)#.pack()
+        secondaryskills_SOH_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_SOH_BOX_VAR).grid(row=15,column=1)#.pack()
         secondaryskills_SOH_LBL = Label(secondaryskills_LF,text = 'sleight of hand').grid(row=15,column=2)#.pack()
-        secondaryskills_STE_CHK = Checkbutton(secondaryskills_LF).grid(row=16,column=0)#.pack()
-        secondaryskills_STE_BOX = Entry(secondaryskills_LF,width = 5).grid(row=16,column=1)#.pack()
+        secondaryskills_STE_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_STE_CHK_VAR).grid(row=16,column=0)#.pack()
+        secondaryskills_STE_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_STE_BOX_VAR).grid(row=16,column=1)#.pack()
         secondaryskills_STE_LBL = Label(secondaryskills_LF,text = 'stealth').grid(row=16,column=2)#.pack()
-        secondaryskills_SRV_CHK = Checkbutton(secondaryskills_LF).grid(row=17,column=0)#.pack()
-        secondaryskills_SRV_BOX = Entry(secondaryskills_LF,width = 5).grid(row=17,column=1)#.pack()
+        secondaryskills_SRV_CHK = Checkbutton(secondaryskills_LF,               variable = self.secondaryskills_SRV_CHK_VAR).grid(row=17,column=0)#.pack()
+        secondaryskills_SRV_BOX = Entry(secondaryskills_LF,width = 5,           textvariable = self.secondaryskills_SRV_BOX_VAR).grid(row=17,column=1)#.pack()
         secondaryskills_SRV_LBL = Label(secondaryskills_LF,text = 'survival').grid(row=17,column=2)#.pack()
         secondaryskills_LF.place(x=225,y=300)        
         
@@ -226,7 +263,7 @@ class main_win:
         HPmiscskills_HTP_LBL = Label(HPmiscskills_LF,text = 'temp HP')        .grid(row=5,column=0)#.pack()
         HPmiscskills_HCR_BOX = Entry(HPmiscskills_LF,width = 4)              .grid(row=6,column=1)#.pack()
         HPmiscskills_HCR_LBL = Label(HPmiscskills_LF,text = 'current HP')        .grid(row=6,column=0)#.pack()
-        HPmiscskills_LF.place(x=375,y=50)
+        HPmiscskills_LF.place(x=400,y=50)##was 375
 
         ##hitdicedeathsave
         #diceandsavesmisc
@@ -243,7 +280,7 @@ class main_win:
         diceandsavesmisc_DF1_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=2)#.pack()
         diceandsavesmisc_DF2_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=3)#.pack()
         diceandsavesmisc_DF3_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=4)#.pack()
-        diceandsavesmisc_LF.place(x=375,y=175)
+        diceandsavesmisc_LF.place(x=400,y=175)
 
         
         attackplusspells_LF = LabelFrame(self.This_win,text = 'attack/magic stats')
@@ -253,29 +290,40 @@ class main_win:
         attackplusspells_WN3_BOX = Entry(attackplusspells_LF,width = 7,textvariable = self.attackplusspells_WN3_BOX_VAR)             .grid(row=3,column=0)#.pack()
         attackplusspells_ATK_LBL = Label(attackplusspells_LF,text = 'atk bonus') .grid(row=0,column=1)#.pack()
         attackplusspells_AB1_BOX = Entry(attackplusspells_LF,width = 3,textvariable = self.attackplusspells_AB1_BOX_VAR)             .grid(row=1,column=1)#.pack()
-        attackplusspells_AB2_BOX = Entry(attackplusspells_LF,width = 3,textvariable = self.attackplusspells_AB1_BOX_VAR)             .grid(row=2,column=1)#.pack()
-        attackplusspells_AB3_BOX = Entry(attackplusspells_LF,width = 3,textvariable = self.attackplusspells_AB1_BOX_VAR)             .grid(row=3,column=1)#.pack()
+        attackplusspells_AB2_BOX = Entry(attackplusspells_LF,width = 3,textvariable = self.attackplusspells_AB2_BOX_VAR)             .grid(row=2,column=1)#.pack()
+        attackplusspells_AB3_BOX = Entry(attackplusspells_LF,width = 3,textvariable = self.attackplusspells_AB3_BOX_VAR)             .grid(row=3,column=1)#.pack()
         attackplusspells_DTY_LBL = Label(attackplusspells_LF,text = 'damage/type') .grid(row=0,column=2)#.pack()
         attackplusspells_DT1_BOX = Entry(attackplusspells_LF,width = 9,textvariable = self.attackplusspells_DT1_BOX_VAR)             .grid(row=1,column=2)#.pack()
-        attackplusspells_DT2_BOX = Entry(attackplusspells_LF,width = 9,textvariable = self.attackplusspells_DT1_BOX_VAR)             .grid(row=2,column=2)#.pack()
-        attackplusspells_DT3_BOX = Entry(attackplusspells_LF,width = 9,textvariable = self.attackplusspells_DT1_BOX_VAR)             .grid(row=3,column=2)#.pack()
+        attackplusspells_DT2_BOX = Entry(attackplusspells_LF,width = 9,textvariable = self.attackplusspells_DT2_BOX_VAR)             .grid(row=2,column=2)#.pack()
+        attackplusspells_DT3_BOX = Entry(attackplusspells_LF,width = 9,textvariable = self.attackplusspells_DT3_BOX_VAR)             .grid(row=3,column=2)#.pack()
         attackplusspells_NTS_LF =  LabelFrame(self.This_win,text = 'atk/mag notes')#position by magic/stats
-        self.attackplusspells_MSC_TXT = Text(attackplusspells_NTS_LF,height = 25,width = 25)
+        self.attackplusspells_MSC_TXT = Text(attackplusspells_NTS_LF,height = 25,width = 25)#add scrollbar to list
         self.attackplusspells_MSC_TXT                                                                                                .grid(row=4,column=0)#.pack() ##was height 10
-        #attackplusspells_NTS_LF.place(x=450,y=500)
+        attackplusspells_NTS_LF.place(x=400,y=400)
         #add txt to fill spaces
-        #attackplusspells_LF.place(x=300,y=150)
+        attackplusspells_LF.place(x=400,y=300)
 
         ###print(self.get_primaryattributes())
         ##print(self.get_savingthrows())
         #print(self.attackplusspells_MSC_TXT)
+        Menu_main = Menu(self.This_win)
+        Menu_settings = Menu(Menu_main,tearoff = 0)
+        #Menu_settings = Menu(menubar, tearoff=0)
+        Menu_settings.add_command(label="dice roller", command=dicewin)
+        Menu_settings.add_command(label="custom link")#, command=Menu_customchoose_window)
+        Menu_main.add_cascade(label = 'tools',menu = Menu_settings)
+        Menu_main.add_command(label="preview")#, command=Menu_preview_window)
+        self.This_win.config(menu=Menu_main)#title = 'Link Roulette'
         self.This_win.after(1500,self.Alt_loop)
         self.This_win.mainloop()
     def Alt_loop(self):
         ##additional event loop code here
-        print(self.get_attackplusspells())
+        #print(self.get_attackplusspells())
+        print(self.get_secondaryskills())
         ##end
         self.This_win.after(1500,self.Alt_loop)
+
+        
     def get_primaryattributes(self):
         return[ self.primaryattributes_STR_BOX_VAR.get(),
                 self.primaryattributes_DEX_BOX_VAR.get(),
@@ -283,6 +331,8 @@ class main_win:
                 self.primaryattributes_INT_BOX_VAR.get(),
                 self.primaryattributes_WIS_BOX_VAR.get(),
                 self.primaryattributes_CHR_BOX_VAR.get()]
+
+    
     def get_rollmod(self):
         return[ self.primaryattributes_STR_MOD_BOX_VAR.get(),
                 self.primaryattributes_DEX_MOD_BOX_VAR.get(),
@@ -290,10 +340,16 @@ class main_win:
                 self.primaryattributes_INT_MOD_BOX_VAR.get(),
                 self.primaryattributes_WIS_MOD_BOX_VAR.get(),
                 self.primaryattributes_CHR_MOD_BOX_VAR.get()]
+
+    
     def get_inspiration(self):
         return self.inspiration_STR_BOX_VAR.get()
+
+    
     def get_proficiencybonus(self):
         return self.proficiencybonus_STR_BOX_VAR.get()
+
+    
     def get_savingthrows(self):
         return[
             (self.savingthrows_STR_CHK_VAR.get(),self.savingthrows_STR_BOX_VAR.get()),
@@ -302,10 +358,52 @@ class main_win:
             (self.savingthrows_INT_CHK_VAR.get(),self.savingthrows_INT_BOX_VAR.get()),
             (self.savingthrows_WIS_CHK_VAR.get(),self.savingthrows_WIS_BOX_VAR.get()),
             (self.savingthrows_CHR_CHK_VAR.get(),self.savingthrows_CHR_BOX_VAR.get())]##return tuples of each attribute(proficient,throw)
+
+    
     def get_secondaryskills(self):
-        pass
+        return[[
+            self.secondaryskills_ACR_BOX_VAR.get(),
+            self.secondaryskills_ANH_BOX_VAR.get(),
+            self.secondaryskills_ARC_BOX_VAR.get(),
+            self.secondaryskills_ATH_BOX_VAR.get(),
+            self.secondaryskills_DEC_BOX_VAR.get(),
+            self.secondaryskills_HIS_BOX_VAR.get(),
+            self.secondaryskills_CHR_BOX_VAR.get(),
+            self.secondaryskills_IDT_BOX_VAR.get(),
+            self.secondaryskills_INV_BOX_VAR.get(),
+            self.secondaryskills_MED_BOX_VAR.get(),
+            self.secondaryskills_NAT_BOX_VAR.get(),
+            self.secondaryskills_PER_BOX_VAR.get(),
+            self.secondaryskills_PRF_BOX_VAR.get(),
+            self.secondaryskills_PRS_BOX_VAR.get(),
+            self.secondaryskills_REL_BOX_VAR.get(),
+            self.secondaryskills_SOH_BOX_VAR.get(),
+            self.secondaryskills_STE_BOX_VAR.get(),
+            self.secondaryskills_SRV_BOX_VAR.get(),
+            ],[
+            self.secondaryskills_ACR_CHK_VAR.get(),
+            self.secondaryskills_ANH_CHK_VAR.get(),
+            self.secondaryskills_ARC_CHK_VAR.get(),
+            self.secondaryskills_ATH_CHK_VAR.get(),
+            self.secondaryskills_DEC_CHK_VAR.get(),
+            self.secondaryskills_HIS_CHK_VAR.get(),
+            self.secondaryskills_CHR_CHK_VAR.get(),
+            self.secondaryskills_IDT_CHK_VAR.get(),
+            self.secondaryskills_INV_CHK_VAR.get(),
+            self.secondaryskills_MED_CHK_VAR.get(),
+            self.secondaryskills_NAT_CHK_VAR.get(),
+            self.secondaryskills_PER_CHK_VAR.get(),
+            self.secondaryskills_PRF_CHK_VAR.get(),
+            self.secondaryskills_PRS_CHK_VAR.get(),
+            self.secondaryskills_REL_CHK_VAR.get(),
+            self.secondaryskills_SOH_CHK_VAR.get(),
+            self.secondaryskills_STE_CHK_VAR.get(),
+            self.secondaryskills_SRV_CHK_VAR.get()]]
+            
     def get_hpmiscskills(self):
         pass
+
+    
     def get_attackplusspells_VAR(self):#[weaps/notes][data][weapno]
                                        #weapno
                                        #1=name
@@ -337,38 +435,63 @@ class main_win:
         return self.attackplusspells_MSC_TXT.get(1.0, 'end-1c')##char1 2 end
     def get_attackplusspells(self):
         return [self.get_attackplusspells_VAR(),self.get_attackplusspells_TXT()]
+    
+    def get_a():
+        pass
             
             
 class dicewin:
-    #This_win = Toplevel()
+    #This_win = Toplevel
     #print('init')
+    ##variables
+    Diceroller_DX1_RAD_VAR = IntVar()#StringVar()
+    Diceroller_RDR_LBL_VAR = StringVar()
     
     def __init__(self):
-        This_win = Toplevel()
-        This_win.title('Dice roller')
-        This_win.geometry('640x720')
+        #self.This_win = Toplevel()##minus the ()?
+        self.This_win = Toplevel()
+        self.This_win.title('Dice roller')
+        self.This_win.geometry('640x720')
         ##widgets
-        Diceroller_LF = LabelFrame(This_win)
-        Diceroller_DXX_LBL = Label(Diceroller_LF,text = 'select a dice').grid()
-        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)##dicetypes
-        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)
-        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)
-        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)
-        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF).grid(row=1,column=1)
+        Diceroller_LF = LabelFrame(self.This_win)
+        Diceroller_DXX_LBL = Label(Diceroller_LF,text = 'select a dice').grid(row=0,column=0)
+        Diceroller_DX1_RAD = Radiobutton(Diceroller_LF,variable = self.Diceroller_DX1_RAD_VAR,value = 4,text = 'D4').grid(row=1,column=0)##dicetypes
+        Diceroller_DX2_RAD = Radiobutton(Diceroller_LF,variable = self.Diceroller_DX1_RAD_VAR,value = 8,text = 'D8').grid(row=1,column=1)
+        Diceroller_DX3_RAD = Radiobutton(Diceroller_LF,variable = self.Diceroller_DX1_RAD_VAR,value = 6,text = 'D6').grid(row=1,column=2)
+        Diceroller_DX4_RAD = Radiobutton(Diceroller_LF,variable = self.Diceroller_DX1_RAD_VAR,value = 12,text = 'D12').grid(row=1,column=3)
+        Diceroller_DX5_RAD = Radiobutton(Diceroller_LF,variable = self.Diceroller_DX1_RAD_VAR,value = 10,text = 'D10').grid(row=1,column=4)
+        Diceroller_DX6_RAD = Radiobutton(Diceroller_LF,variable = self.Diceroller_DX1_RAD_VAR,value = 100,text = 'D100').grid(row=1,column=5)
+        Diceroller_DX7_RAD = Radiobutton(Diceroller_LF,variable = self.Diceroller_DX1_RAD_VAR,value = 20,text = 'D20').grid(row=1,column=6)
+        Diceroller_RTD_BTN = Button(Diceroller_LF,text = 'Roll!',command = self.roll_die).grid(row=2,column=0)
+        Diceroller_RDR_LBL = Label(Diceroller_LF,textvariable = self.Diceroller_RDR_LBL_VAR,text = 'you rolled a |').grid(row=2,column=1)
         Diceroller_LF.place(x=50,y=50)
         
         ## post widget code
         self.This_win.after(1500,self.Alt_loop)
-        self.This_win.mainloop()
-
-    def roll_die(self):##maybe problem
+        self.This_win.mainloop() 
         
 
     def Alt_loop(self):
         ##additional event loop code here
-        print(self.get_attackplusspells())
+        print(self.get_diceroller())
         ##end
         self.This_win.after(1500,self.Alt_loop)
+
+    def roll_die(self):##maybe problem
+        d = self.get_diceroller()
+        r = 0##random roll
+        if str(d) == '100':
+            r= (self.internal_roller(10)*10)
+        else:
+            r= self.internal_roller(int(d))
+        self.set_rollerlabel(r)
+        
+    def internal_roller(self,number):
+        return random.randint(0,number)
+    def get_diceroller(self):
+        return self.Diceroller_DX1_RAD_VAR.get()
+    def set_rollerlabel(self,data):
+        self.Diceroller_RDR_LBL_VAR.set('you rolled a |'+str(data))
             
             
             
