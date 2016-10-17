@@ -41,6 +41,10 @@ class main_win:
     primaryattributes_INT_MOD_BOX_VAR = StringVar()
     primaryattributes_WIS_MOD_BOX_VAR = StringVar()
     primaryattributes_CHR_MOD_BOX_VAR = StringVar()
+    
+    #perception
+    Perception_PER_BOX_VAR = StringVar()
+    
     ##inspiration
     inspiration_STR_BOX_VAR = StringVar()
     
@@ -155,6 +159,12 @@ class main_win:
         primaryattributes_CHR_MOD_BOX = Entry(primaryattributes_MOD_LF,width = 5,textvariable = self.primaryattributes_CHR_MOD_BOX_VAR).pack()
         primaryattributes_CHR_MOD_LBL = Label(primaryattributes_MOD_LF,text = 'Charisma').pack()
         primaryattributes_MOD_LF.place(x=125,y=50)
+
+        ##Perception
+        Perception_LF = LabelFrame(self.This_win,text = 'passive wisdom')
+        Perception_PER_BOX = Entry(Perception_LF,width = 5,textvariable = self.Perception_PER_BOX_VAR).grid(row = 0,column=0)#.pack()
+        Perception_PER_BOX = Label(Perception_LF,text = 'Perception').grid(row = 0,column=1)#.pack()
+        Perception_LF.place(x=50,y=325)
 
     
         ##inspiration_LF
@@ -307,12 +317,19 @@ class main_win:
         ##print(self.get_savingthrows())
         #print(self.attackplusspells_MSC_TXT)
         Menu_main = Menu(self.This_win)
+        
+        Menu_FileIO = Menu(Menu_main,tearoff = 0)
+        Menu_FileIO.add_command(label="Load", command=dicewin)
+        Menu_FileIO.add_command(label="Save", command=dicewin)
+        
         Menu_settings = Menu(Menu_main,tearoff = 0)
         #Menu_settings = Menu(menubar, tearoff=0)
         Menu_settings.add_command(label="dice roller", command=dicewin)
         Menu_settings.add_command(label="custom link")#, command=Menu_customchoose_window)
-        Menu_main.add_cascade(label = 'tools',menu = Menu_settings)
-        Menu_main.add_command(label="preview")#, command=Menu_preview_window)
+
+        Menu_main.add_cascade(label = '|File|',menu = Menu_FileIO)
+        Menu_main.add_cascade(label = '|Tools|',menu = Menu_settings)
+        Menu_main.add_command(label="|create new preset character|",command = optwin)#, command=Menu_preview_window)
         self.This_win.config(menu=Menu_main)#title = 'Link Roulette'
         self.This_win.after(1500,self.Alt_loop)
         self.This_win.mainloop()
@@ -492,9 +509,30 @@ class dicewin:
         return self.Diceroller_DX1_RAD_VAR.get()
     def set_rollerlabel(self,data):
         self.Diceroller_RDR_LBL_VAR.set('you rolled a |'+str(data))
-            
-            
-            
+class createcharwin:
+    def __init__(self):
+        pass
+    pass
+
+class optwin:
+    def __init__(self):
+        self.This_win = Toplevel()
+        self.This_win.title('Options Menu')
+        self.This_win.geometry('600x200')
+        ##widgets
+        
+        ## post widget code
+        self.This_win.after(1500,self.Alt_loop)
+        self.This_win.mainloop() 
+        
+
+    def Alt_loop(self):
+        ##additional event loop code here
+
+        ##end
+        self.This_win.after(1500,self.Alt_loop)
+class fileIO:
+    Dat_Main_Path = ''
             
 #datastructs#
 ##heroclass##
