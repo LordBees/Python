@@ -1,6 +1,7 @@
 ##d&d char she
 import os,sys,random
 from tkinter import *
+from tkinter import messagebox,filedialog
 
 ##tkclass##
 class basewin:
@@ -24,6 +25,9 @@ class basetoplevel(basewin):
         This_win.mainloop()
 
 class main_win:
+    ##class related variables
+    QS_path_currfile = ''
+    ##TK start
     This_win = Tk()
     ##variables
     ##primary attributes
@@ -319,8 +323,9 @@ class main_win:
         Menu_main = Menu(self.This_win)
         
         Menu_FileIO = Menu(Menu_main,tearoff = 0)
-        Menu_FileIO.add_command(label="Load", command=dicewin)
-        Menu_FileIO.add_command(label="Save", command=dicewin)
+        Menu_FileIO.add_command(label="Load", command=self.sub_button_loadfile)
+        Menu_FileIO.add_command(label="Save", command=self.sub_button_savefile)
+        Menu_FileIO.add_command(label="Save As", command=self.sub_button_savefile_as)
         
         Menu_settings = Menu(Menu_main,tearoff = 0)
         #Menu_settings = Menu(menubar, tearoff=0)
@@ -341,6 +346,76 @@ class main_win:
         self.This_win.after(1500,self.Alt_loop)
 
         
+    def readfile(self,fname):
+        try:
+            f = open(fname,'r')
+            data = f.readlines()
+            f.close()
+        except:
+            try:
+                f.close()
+            except:
+                print('error/file already closed!')
+        return data
+
+    def writefile(self,fname,dat,ARRAY = True):
+        try:
+            f = open(fname,'w')
+            if ARRAY == True:
+                for x in dat:
+                    f.write(str(x)+'\n')
+                    print('ln=',x)
+            else:
+                f.write(dat)
+            f.close()
+        except:
+            try:
+                f.close()
+            except:
+                print('error/file already closed!')
+                
+    def loadfile(self):
+        pass
+    def savefile(self):
+        pass
+    def internal_save_current(self):
+        pass #self.QS_path_currfile
+    def internal_loadfile(self,fname):
+        pass
+    def internal_savefile(self,fname,dat):
+        pass
+    def internal_savefileaskchecker(self):##returns name and true if file exists
+        FPath = filedialog.asksaveasfilename(filetypes=(("D&D character sheet", "*.ADV"),("All Files", "*.*") ))##adv extention is forced onto ##EDIT took out this defaultextension=".ADV", 
+        EXISTS_FLAG = False
+        if os.path.isfile(FPath):# or os.path.isfile(FPath.strip('.ADV')):##hack to get around
+            EXISTS_FLAG = True
+        else:
+            EXISTS_FLAG = False
+        print(os.path.isfile(FPath))
+        return[FPath,EXISTS_FLAG]
+    
+##    def internal_update_Charsheet(self,data):
+##        self.set_ALL(data)
+        
+    
+    def sub_button_loadfile(self):##load file menubutton
+        FPath = filedialog.askopenfilename(defaultextension=".ADV", filetypes=(("D&D character sheet", "*.ADV"),("All Files", "*.*") ))
+        dat = self.readfile(FPath)
+        self.QS_path_currfile = FPath##sets var for quicksaving
+
+    def sub_button_savefile(self):##save file menubutton
+        FPath = self.QS_path_currfile
+    def sub_button_savefile_as(self):
+        FP = self.internal_savefileaskchecker()
+        print(FP)
+        if FP[1] == True:
+            if messagebox.askokcancel(title = 'confirm',message = 'this will OVERWRITE the selected file with data\nare you sure?'):
+                pass
+            else:
+                pass
+        else:
+            pass
+        #self.internal_savefile(FP[0])
     def get_primaryattributes(self):
         return[ self.primaryattributes_STR_BOX_VAR.get(),
                 self.primaryattributes_DEX_BOX_VAR.get(),
@@ -358,6 +433,8 @@ class main_win:
                 self.primaryattributes_WIS_MOD_BOX_VAR.get(),
                 self.primaryattributes_CHR_MOD_BOX_VAR.get()]
 
+    def get_Perception(self):
+        return self.Perception_PER_BOX.get()
     
     def get_inspiration(self):
         return self.inspiration_STR_BOX_VAR.get()
@@ -452,6 +529,9 @@ class main_win:
         return self.attackplusspells_MSC_TXT.get(1.0, 'end-1c')##char1 2 end
     def get_attackplusspells(self):
         return [self.get_attackplusspells_VAR(),self.get_attackplusspells_TXT()]
+    def get_ALL(self):
+        pass
+        
     
     def get_a():
         pass
@@ -468,7 +548,7 @@ class dicewin:
         #self.This_win = Toplevel()##minus the ()?
         self.This_win = Toplevel()
         self.This_win.title('Dice roller')
-        self.This_win.geometry('640x720')
+        self.This_win.geometry('450x200')
         ##widgets
         Diceroller_LF = LabelFrame(self.This_win)
         Diceroller_DXX_LBL = Label(Diceroller_LF,text = 'select a dice').grid(row=0,column=0)
@@ -499,6 +579,8 @@ class dicewin:
         r = 0##random roll
         if str(d) == '100':
             r= (self.internal_roller(10)*10)
+        elif str(d) == '0':
+            r = 'No dice Selected!'
         else:
             r= self.internal_roller(int(d))
         self.set_rollerlabel(r)
@@ -531,8 +613,8 @@ class optwin:
 
         ##end
         self.This_win.after(1500,self.Alt_loop)
-class fileIO:
-    Dat_Main_Path = ''
+class fileIO:##unused atm
+    Dat_Main_Path = '' 
             
 #datastructs#
 ##heroclass##
