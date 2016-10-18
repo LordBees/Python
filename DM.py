@@ -135,6 +135,18 @@ class main_win:
     attackplusspells_DT3_BOX_VAR = StringVar()
     attackplusspells_MSC_TXT = StringVar()##hack for getting data out of text box(assigned as stringvar temp to ensure .get() can be found
 
+    ##hack for getting data out of text box(assigned as stringvar temp to ensure .get() can be found before assignment
+    #traits/lang box
+    languagesplusskills_TBX_TXT = StringVar()
+    #equip/inventory
+    equipmain_TBX_TXT = StringVar()
+    #traits
+    personalinfo_traits_TBX_TXT = StringVar()
+    personalinfo_ideals_TBX_TXT = StringVar()
+    personalinfo_bonds_TBX_TXT = StringVar()
+    personalinfo_flaws_TBX_TXT = StringVar()
+    personalinfo_features_TBX_TXT = StringVar()
+
     def __init__(self):
         
         self.This_win.title('Dungeon Master v1')
@@ -345,6 +357,50 @@ class main_win:
         #add txt to fill spaces
         attackplusspells_LF.place(x=400,y=300)
 
+        languagesplusskills_LF = LabelFrame(self.This_win,text = 'proficiencies and languages')
+        self.languagesplusskills_TBX_TXT = Text(languagesplusskills_LF,height = 25,width = 25)#add scrollbar to list
+        self.languagesplusskills_TBX_TXT.grid(row=0,column=0)
+        #languagesplusskills_LF.place(x=0,y=0)
+
+        equipmain_LF = LabelFrame(self.This_win,text = 'inventory')
+        self.equipmain_TBX_TXT = Text(equipmain_LF,height = 25,width = 25)#add scrollbar to list
+        self.equipmain_TBX_TXT.grid(row=0,column=0)
+        #equipmain_LF.place(x=0,y=0)
+
+        #personalinfo_basic
+        personalinfo_traits_LF = LabelFrame(self.This_win,text = 'personality traits')
+        self.personalinfo_traits_TBX_TXT = Text(personalinfo_traits_LF,height = 5,width = 25)#add scrollbar to list
+        self.personalinfo_traits_TBX_TXT.grid(row=0,column=0)
+        personalinfo_traits_LF.place(x=600,y=50)
+        
+        personalinfo_ideals_LF = LabelFrame(self.This_win,text = 'ideals')
+        self.personalinfo_ideals_TBX_TXT = Text(personalinfo_ideals_LF,height = 5,width = 25)#add scrollbar to list
+        self.personalinfo_ideals_TBX_TXT.grid(row=0,column=0)
+        personalinfo_ideals_LF.place(x=600,y=100)
+        
+        personalinfo_bonds_LF = LabelFrame(self.This_win,text = 'bonds')
+        self.personalinfo_bonds_TBX_TXT = Text(personalinfo_bonds_LF,height = 5,width = 25)#add scrollbar to list
+        self.personalinfo_bonds_TBX_TXT.grid(row=0,column=0)
+        personalinfo_bonds_LF.place(x=600,y=200)
+        
+        personalinfo_flaws_LF = LabelFrame(self.This_win,text = 'flaws')
+        self.personalinfo_flaws_TBX_TXT = Text(personalinfo_flaws_LF,height = 5,width = 25)#add scrollbar to list
+        self.personalinfo_flaws_TBX_TXT.grid(row=0,column=0)
+        personalinfo_flaws_LF.place(x=600,y=300)
+
+        personalinfo_features_LF = LabelFrame(self.This_win,text = 'personality traits')
+        self.personalinfo_features_TBX_TXT = Text(personalinfo_features_LF,height = 25,width = 25)#add scrollbar to list
+        self.personalinfo_features_TBX_TXT.grid(row=0,column=0)
+        personalinfo_features_LF.place(x=825,y=50)
+
+##        languagesplusskills_TBX_TXT
+##        equipmain_TBX_TXT
+##        personalinfo_traits_TBX_TXT
+##        personalinfo_ideals_TBX_TXT
+##        personalinfo_bonds_TBX_TXT
+##        personalinfo_flaws_TBX_TXT
+##        personalinfo_features_TBX_TXT
+
         ###print(self.get_primaryattributes())
         ##print(self.get_savingthrows())
         #print(self.attackplusspells_MSC_TXT)
@@ -362,7 +418,8 @@ class main_win:
 
         Menu_main.add_cascade(label = '|File|',menu = Menu_FileIO)
         Menu_main.add_cascade(label = '|Tools|',menu = Menu_settings)
-        Menu_main.add_command(label="|create new preset character|",command = optwin)#, command=Menu_preview_window)
+        Menu_main.add_command(label="|Options|",command = optwin)#, command=Menu_preview_window)
+        Menu_main.add_command(label="|create new preset character|",command = createcharwin)#, command=Menu_preview_window)
         self.This_win.config(menu=Menu_main)#title = 'Link Roulette'
         self.This_win.after(1500,self.Alt_loop)
         self.This_win.mainloop()
@@ -370,6 +427,7 @@ class main_win:
         ##additional event loop code here
         #print(self.get_attackplusspells())
         print(self.get_secondaryskills())
+        self.set_primaryattributes([random.random(),random.random(),random.random(),random.random(),random.random(),random.random(),random.random()])
         ##end
         self.This_win.after(1500,self.Alt_loop)
 
@@ -628,43 +686,43 @@ class main_win:
 
     #secondary stats
     def set_secondaryskills(self,data):#[boxdata/checkboxdata][data]
-            self.secondaryskills_ACR_BOX_VAR.set(data[0][0])
-            self.secondaryskills_ANH_BOX_VAR.set(data[0][1])
-            self.secondaryskills_ARC_BOX_VAR.set(data[0][2])
-            self.secondaryskills_ATH_BOX_VAR.set(data[0][3])
-            self.secondaryskills_DEC_BOX_VAR.set(data[0][4])
-            self.secondaryskills_HIS_BOX_VAR.set(data[0][5])
-            self.secondaryskills_CHR_BOX_VAR.set(data[0][6])
-            self.secondaryskills_IDT_BOX_VAR.set(data[0][7])
-            self.secondaryskills_INV_BOX_VAR.set(data[0][8])
-            self.secondaryskills_MED_BOX_VAR.set(data[0][9])
-            self.secondaryskills_NAT_BOX_VAR.set(data[0][10])
-            self.secondaryskills_PER_BOX_VAR.set(data[0][11])
-            self.secondaryskills_PRF_BOX_VAR.set(data[0][12])
-            self.secondaryskills_PRS_BOX_VAR.set(data[0][13])
-            self.secondaryskills_REL_BOX_VAR.set(data[0][14])
-            self.secondaryskills_SOH_BOX_VAR.set(data[0][15])
-            self.secondaryskills_STE_BOX_VAR.set(data[0][16])
-            self.secondaryskills_SRV_BOX_VAR.set(data[0][17])
-            
-            self.secondaryskills_ACR_CHK_VAR.set(data[1][0])
-            self.secondaryskills_ANH_CHK_VAR.set(data[1][1])
-            self.secondaryskills_ARC_CHK_VAR.set(data[1][2])
-            self.secondaryskills_ATH_CHK_VAR.set(data[1][3])
-            self.secondaryskills_DEC_CHK_VAR.set(data[1][4])
-            self.secondaryskills_HIS_CHK_VAR.set(data[1][5])
-            self.secondaryskills_CHR_CHK_VAR.set(data[1][6])
-            self.secondaryskills_IDT_CHK_VAR.set(data[1][7])
-            self.secondaryskills_INV_CHK_VAR.set(data[1][8])
-            self.secondaryskills_MED_CHK_VAR.set(data[1][9])
-            self.secondaryskills_NAT_CHK_VAR.set(data[1][10])
-            self.secondaryskills_PER_CHK_VAR.set(data[1][11])
-            self.secondaryskills_PRF_CHK_VAR.set(data[1][12])
-            self.secondaryskills_PRS_CHK_VAR.set(data[1][13])
-            self.secondaryskills_REL_CHK_VAR.set(data[1][14])
-            self.secondaryskills_SOH_CHK_VAR.set(data[1][15])
-            self.secondaryskills_STE_CHK_VAR.set(data[1][16])
-            self.secondaryskills_SRV_CHK_VAR.set(data[1][17])
+        self.secondaryskills_ACR_BOX_VAR.set(data[0][0])
+        self.secondaryskills_ANH_BOX_VAR.set(data[0][1])
+        self.secondaryskills_ARC_BOX_VAR.set(data[0][2])
+        self.secondaryskills_ATH_BOX_VAR.set(data[0][3])
+        self.secondaryskills_DEC_BOX_VAR.set(data[0][4])
+        self.secondaryskills_HIS_BOX_VAR.set(data[0][5])
+        self.secondaryskills_CHR_BOX_VAR.set(data[0][6])
+        self.secondaryskills_IDT_BOX_VAR.set(data[0][7])
+        self.secondaryskills_INV_BOX_VAR.set(data[0][8])
+        self.secondaryskills_MED_BOX_VAR.set(data[0][9])
+        self.secondaryskills_NAT_BOX_VAR.set(data[0][10])
+        self.secondaryskills_PER_BOX_VAR.set(data[0][11])
+        self.secondaryskills_PRF_BOX_VAR.set(data[0][12])
+        self.secondaryskills_PRS_BOX_VAR.set(data[0][13])
+        self.secondaryskills_REL_BOX_VAR.set(data[0][14])
+        self.secondaryskills_SOH_BOX_VAR.set(data[0][15])
+        self.secondaryskills_STE_BOX_VAR.set(data[0][16])
+        self.secondaryskills_SRV_BOX_VAR.set(data[0][17])
+        
+        self.secondaryskills_ACR_CHK_VAR.set(data[1][0])
+        self.secondaryskills_ANH_CHK_VAR.set(data[1][1])
+        self.secondaryskills_ARC_CHK_VAR.set(data[1][2])
+        self.secondaryskills_ATH_CHK_VAR.set(data[1][3])
+        self.secondaryskills_DEC_CHK_VAR.set(data[1][4])
+        self.secondaryskills_HIS_CHK_VAR.set(data[1][5])
+        self.secondaryskills_CHR_CHK_VAR.set(data[1][6])
+        self.secondaryskills_IDT_CHK_VAR.set(data[1][7])
+        self.secondaryskills_INV_CHK_VAR.set(data[1][8])
+        self.secondaryskills_MED_CHK_VAR.set(data[1][9])
+        self.secondaryskills_NAT_CHK_VAR.set(data[1][10])
+        self.secondaryskills_PER_CHK_VAR.set(data[1][11])
+        self.secondaryskills_PRF_CHK_VAR.set(data[1][12])
+        self.secondaryskills_PRS_CHK_VAR.set(data[1][13])
+        self.secondaryskills_REL_CHK_VAR.set(data[1][14])
+        self.secondaryskills_SOH_CHK_VAR.set(data[1][15])
+        self.secondaryskills_STE_CHK_VAR.set(data[1][16])
+        self.secondaryskills_SRV_CHK_VAR.set(data[1][17])
     
     def set_ALL(self):
         pass
@@ -726,10 +784,23 @@ class dicewin:
         return self.Diceroller_DX1_RAD_VAR.get()
     def set_rollerlabel(self,data):
         self.Diceroller_RDR_LBL_VAR.set('you rolled a |'+str(data))
-class createcharwin:
+class createcharwin(main_win):
     def __init__(self):
-        pass
-    pass
+        self.This_win = Toplevel()
+        self.This_win.title('Character Creation Setup')
+        self.This_win.geometry('640x720')
+        ##widgets
+        
+        ## post widget code
+        self.This_win.after(1500,self.Alt_loop)
+        self.This_win.mainloop() 
+        
+
+    def Alt_loop(self):
+        ##additional event loop code here
+
+        ##end
+        self.This_win.after(1500,self.Alt_loop)
 
 class optwin:
     def __init__(self):
