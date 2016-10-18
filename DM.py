@@ -819,6 +819,7 @@ class optwin:
 
         ##end
         self.This_win.after(1500,self.Alt_loop)
+        
 class fileIO:##unused atm
     Dat_Main_Path = '' 
             
