@@ -30,6 +30,16 @@ class main_win:
     ##TK start
     This_win = Tk()
     ##variables
+
+    ##charbase_name
+    charbase_name_CNM_BOX_VAR = StringVar()
+    charbase_name_IRL_BOX_VAR = StringVar()
+    charbase_name_CLS_BOX_VAR = StringVar()
+    charbase_name_LVL_BOX_VAR = StringVar()
+    charbase_name_FAC_BOX_VAR = StringVar()
+    charbase_name_RAC_BOX_VAR = StringVar()
+    charbase_name_EXP_BOX_VAR = StringVar()
+    
     ##primary attributes
     primaryattributes_STR_BOX_VAR = StringVar()
     primaryattributes_DEX_BOX_VAR = StringVar()
@@ -131,6 +141,24 @@ class main_win:
         self.This_win.geometry('640x720')
         ##widgets
 
+        ##charbase_name
+        charbase_name_LF = LabelFrame(self.This_win,text = 'primary info')
+        charbase_name_CNM_BOX = Entry(charbase_name_LF,textvariable = self.charbase_name_CNM_BOX_VAR).grid(row=0,column=1)
+        charbase_name_CNM_LBL = Label(charbase_name_LF,text = 'character name:').grid(row=0,column=0)
+        charbase_name_IRL_BOX = Entry(charbase_name_LF,textvariable = self.charbase_name_IRL_BOX_VAR).grid(row=1,column=1)
+        charbase_name_IRL_LBL = Label(charbase_name_LF,text = 'player name:').grid(row=1,column=0)
+        charbase_name_CLS_BOX = Entry(charbase_name_LF,textvariable = self.charbase_name_CLS_BOX_VAR).grid(row=1,column=3)
+        charbase_name_CLS_LBL = Label(charbase_name_LF,text = 'player class:').grid(row=1,column=2)
+        charbase_name_LVL_BOX = Entry(charbase_name_LF,textvariable = self.charbase_name_LVL_BOX_VAR).grid(row=0,column=3)
+        charbase_name_LVL_LBL = Label(charbase_name_LF,text = 'player level:').grid(row=0,column=2)
+        charbase_name_FAC_BOX = Entry(charbase_name_LF,textvariable = self.charbase_name_FAC_BOX_VAR).grid(row=0,column=5)
+        charbase_name_FAC_LBL = Label(charbase_name_LF,text = 'player faction:').grid(row=0,column=4)
+        charbase_name_RAC_BOX = Entry(charbase_name_LF,textvariable = self.charbase_name_RAC_BOX_VAR).grid(row=1,column=5)
+        charbase_name_RAC_LBL = Label(charbase_name_LF,text = 'player race:').grid(row=1,column=4)
+        charbase_name_EXP_BOX = Entry(charbase_name_LF,width = 5,textvariable = self.charbase_name_EXP_BOX_VAR).grid(row=0,column=7)
+        charbase_name_EXP_LBL = Label(charbase_name_LF,text = 'player experience:').grid(row=0,column=6)
+        
+        charbase_name_LF.place(x=400,y=0)
         #primaryattributes_LF
         primaryattributes_LF = LabelFrame(self.This_win,text = 'primary\nattributes')
         primaryattributes_STR_BOX = Entry(primaryattributes_LF,width = 3,textvariable = self.primaryattributes_STR_BOX_VAR).pack()
@@ -416,6 +444,15 @@ class main_win:
         else:
             pass
         #self.internal_savefile(FP[0])
+    def get_charbase_name(self):
+        return[
+            self.charbase_name_CNM_BOX_VAR.get(),
+            self.charbase_name_IRL_BOX_VAR.get(),
+            self.charbase_name_CLS_BOX_VAR.get(),
+            self.charbase_name_LVL_BOX_VAR.get(),
+            self.charbase_name_FAC_BOX_VAR.get(),
+            self.charbase_name_RAC_BOX_VAR.get(),
+            self.charbase_name_EXP_BOX_VAR.get()]
     def get_primaryattributes(self):
         return[ self.primaryattributes_STR_BOX_VAR.get(),
                 self.primaryattributes_DEX_BOX_VAR.get(),
@@ -531,8 +568,106 @@ class main_win:
         return [self.get_attackplusspells_VAR(),self.get_attackplusspells_TXT()]
     def get_ALL(self):
         pass
+
+
+    ##SETTING DATA
+    #base stats
+    def set_charbase_name(self,data):
+        self.charbase_name_CNM_BOX_VAR.set(data[0])
+        self.charbase_name_IRL_BOX_VAR.set(data[1])
+        self.charbase_name_CLS_BOX_VAR.set(data[2])
+        self.charbase_name_LVL_BOX_VAR.set(data[3])
+        self.charbase_name_FAC_BOX_VAR.set(data[4])
+        self.charbase_name_RAC_BOX_VAR.set(data[5])
+        self.charbase_name_EXP_BOX_VAR.set(data[6])
+    #primaryattributes
+    def set_primaryattributes(self,data):
+        self.primaryattributes_STR_BOX_VAR.set(data[0])
+        self.primaryattributes_DEX_BOX_VAR.set(data[1])
+        self.primaryattributes_CON_BOX_VAR.set(data[2])
+        self.primaryattributes_INT_BOX_VAR.set(data[3])
+        self.primaryattributes_WIS_BOX_VAR.set(data[4])
+        self.primaryattributes_CHR_BOX_VAR.set(data[5])
+
+    #rollmod
+    def set_rollmod(self,data):
+        self.primaryattributes_STR_MOD_BOX_VAR.set(data[0])
+        self.primaryattributes_DEX_MOD_BOX_VAR.set(data[1])
+        self.primaryattributes_CON_MOD_BOX_VAR.set(data[2])
+        self.primaryattributes_INT_MOD_BOX_VAR.set(data[3])
+        self.primaryattributes_WIS_MOD_BOX_VAR.set(data[4])
+        self.primaryattributes_CHR_MOD_BOX_VAR.set(data[5])
+
+    #perception
+    def set_Perception(self,data):
+        self.Perception_PER_BOX.set(data[0])
+
+    #inspiration
+    def set_inspiration(self,data):
+        self.inspiration_STR_BOX_VAR.set(data[0])
+
+    # proviciency bonus
+    def set_proficiencybonus(self,data):
+        self.proficiencybonus_STR_BOX_VAR.set(data[0])
+
+    #saving throws
+    def set_savingthrows(self,data):
+        self.savingthrows_STR_BOX_VAR.set(data[0][0])
+        self.savingthrows_DEX_BOX_VAR.set(data[0][1])
+        self.savingthrows_CON_BOX_VAR.set(data[0][2])
+        self.savingthrows_INT_BOX_VAR.set(data[0][3])
+        self.savingthrows_WIS_BOX_VAR.set(data[0][4])
+        self.savingthrows_CHR_BOX_VAR.set(data[0][5])
         
+        self.savingthrows_STR_CHK_VAR.set(data[1][0])
+        self.savingthrows_DEX_CHK_VAR.set(data[1][1])
+        self.savingthrows_CON_CHK_VAR.set(data[1][2])
+        self.savingthrows_INT_CHK_VAR.set(data[1][3])
+        self.savingthrows_WIS_CHK_VAR.set(data[1][4])
+        self.savingthrows_CHR_CHK_VAR.set(data[1][5])
+
+    #secondary stats
+    def set_secondaryskills(self,data):#[boxdata/checkboxdata][data]
+            self.secondaryskills_ACR_BOX_VAR.set(data[0][0])
+            self.secondaryskills_ANH_BOX_VAR.set(data[0][1])
+            self.secondaryskills_ARC_BOX_VAR.set(data[0][2])
+            self.secondaryskills_ATH_BOX_VAR.set(data[0][3])
+            self.secondaryskills_DEC_BOX_VAR.set(data[0][4])
+            self.secondaryskills_HIS_BOX_VAR.set(data[0][5])
+            self.secondaryskills_CHR_BOX_VAR.set(data[0][6])
+            self.secondaryskills_IDT_BOX_VAR.set(data[0][7])
+            self.secondaryskills_INV_BOX_VAR.set(data[0][8])
+            self.secondaryskills_MED_BOX_VAR.set(data[0][9])
+            self.secondaryskills_NAT_BOX_VAR.set(data[0][10])
+            self.secondaryskills_PER_BOX_VAR.set(data[0][11])
+            self.secondaryskills_PRF_BOX_VAR.set(data[0][12])
+            self.secondaryskills_PRS_BOX_VAR.set(data[0][13])
+            self.secondaryskills_REL_BOX_VAR.set(data[0][14])
+            self.secondaryskills_SOH_BOX_VAR.set(data[0][15])
+            self.secondaryskills_STE_BOX_VAR.set(data[0][16])
+            self.secondaryskills_SRV_BOX_VAR.set(data[0][17])
+            
+            self.secondaryskills_ACR_CHK_VAR.set(data[1][0])
+            self.secondaryskills_ANH_CHK_VAR.set(data[1][1])
+            self.secondaryskills_ARC_CHK_VAR.set(data[1][2])
+            self.secondaryskills_ATH_CHK_VAR.set(data[1][3])
+            self.secondaryskills_DEC_CHK_VAR.set(data[1][4])
+            self.secondaryskills_HIS_CHK_VAR.set(data[1][5])
+            self.secondaryskills_CHR_CHK_VAR.set(data[1][6])
+            self.secondaryskills_IDT_CHK_VAR.set(data[1][7])
+            self.secondaryskills_INV_CHK_VAR.set(data[1][8])
+            self.secondaryskills_MED_CHK_VAR.set(data[1][9])
+            self.secondaryskills_NAT_CHK_VAR.set(data[1][10])
+            self.secondaryskills_PER_CHK_VAR.set(data[1][11])
+            self.secondaryskills_PRF_CHK_VAR.set(data[1][12])
+            self.secondaryskills_PRS_CHK_VAR.set(data[1][13])
+            self.secondaryskills_REL_CHK_VAR.set(data[1][14])
+            self.secondaryskills_SOH_CHK_VAR.set(data[1][15])
+            self.secondaryskills_STE_CHK_VAR.set(data[1][16])
+            self.secondaryskills_SRV_CHK_VAR.set(data[1][17])
     
+    def set_ALL(self):
+        pass
     def get_a():
         pass
             
