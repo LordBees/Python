@@ -121,6 +121,23 @@ class main_win:
 
     
     ##hpmiscskills
+    HPmiscskills_AMC_BOX_VAR = StringVar()
+    HPmiscskills_INI_BOX_VAR = StringVar()
+    HPmiscskills_SPD_BOX_VAR = StringVar()
+    HPmiscskills_HMX_BOX_VAR = StringVar()
+    HPmiscskills_HTP_BOX_VAR = StringVar()
+    HPmiscskills_HCR_BOX_VAR = StringVar()
+
+    #di
+    diceandsavesmisc_HTD_BOX_VAR = StringVar()
+    diceandsavesmisc_DTO_BOX_VAR = StringVar()
+    diceandsavesmisc_DS1_CHK_VAR = IntVar()
+    diceandsavesmisc_DS2_CHK_VAR = IntVar()
+    diceandsavesmisc_DS3_CHK_VAR = IntVar()
+    diceandsavesmisc_DF1_CHK_VAR = IntVar()
+    diceandsavesmisc_DF2_CHK_VAR = IntVar()
+    diceandsavesmisc_DF3_CHK_VAR = IntVar()
+    
      #attackplusspells
     attackplusspells_WN1_BOX_VAR = StringVar()
     attackplusspells_WN2_BOX_VAR = StringVar()
@@ -304,36 +321,36 @@ class main_win:
         secondaryskills_LF.place(x=225,y=300)        
         
         HPmiscskills_LF = LabelFrame(self.This_win,text = 'HP/misc')
-        HPmiscskills_AMC_BOX = Entry(HPmiscskills_LF,width = 5)             .grid(row=1,column=0)#.pack()
+        HPmiscskills_AMC_BOX = Entry(HPmiscskills_LF,width = 5,textvariable = self.HPmiscskills_AMC_BOX_VAR)             .grid(row=1,column=0)#.pack()
         HPmiscskills_AMC_LBL = Label(HPmiscskills_LF,text = 'armour class') .grid(row=0,column=0)#.pack()
-        HPmiscskills_INI_BOX = Entry(HPmiscskills_LF,width = 5)             .grid(row=1,column=1)#.pack()
+        HPmiscskills_INI_BOX = Entry(HPmiscskills_LF,width = 5,textvariable = self.HPmiscskills_INI_BOX_VAR)             .grid(row=1,column=1)#.pack()
         HPmiscskills_INI_LBL = Label(HPmiscskills_LF,text = 'initiative')   .grid(row=0,column=1)#.pack()
-        HPmiscskills_SPD_BOX = Entry(HPmiscskills_LF,width = 5)             .grid(row=1,column=2)#.pack()
+        HPmiscskills_SPD_BOX = Entry(HPmiscskills_LF,width = 5,textvariable = self.HPmiscskills_SPD_BOX_VAR)             .grid(row=1,column=2)#.pack()
         HPmiscskills_SPD_LBL = Label(HPmiscskills_LF,text = 'Speed')        .grid(row=0,column=2)#.pack()
         
-        HPmiscskills_HMX_BOX = Entry(HPmiscskills_LF,width = 4)             .grid(row=4,column=1)#.pack()
+        HPmiscskills_HMX_BOX = Entry(HPmiscskills_LF,width = 4,textvariable = self.HPmiscskills_HMX_BOX_VAR)             .grid(row=4,column=1)#.pack()
         HPmiscskills_HMX_LBL = Label(HPmiscskills_LF,text = 'MAX HP')        .grid(row=4,column=0)#.pack()
-        HPmiscskills_HTP_BOX = Entry(HPmiscskills_LF,width = 4)              .grid(row=5,column=1)#.pack()
+        HPmiscskills_HTP_BOX = Entry(HPmiscskills_LF,width = 4,textvariable = self.HPmiscskills_HTP_BOX_VAR)              .grid(row=5,column=1)#.pack()
         HPmiscskills_HTP_LBL = Label(HPmiscskills_LF,text = 'temp HP')        .grid(row=5,column=0)#.pack()
-        HPmiscskills_HCR_BOX = Entry(HPmiscskills_LF,width = 4)              .grid(row=6,column=1)#.pack()
+        HPmiscskills_HCR_BOX = Entry(HPmiscskills_LF,width = 4,textvariable = self.HPmiscskills_HCR_BOX_VAR)              .grid(row=6,column=1)#.pack()
         HPmiscskills_HCR_LBL = Label(HPmiscskills_LF,text = 'current HP')        .grid(row=6,column=0)#.pack()
         HPmiscskills_LF.place(x=400,y=50)##was 375
 
         ##hitdicedeathsave
         #diceandsavesmisc
         diceandsavesmisc_LF = LabelFrame(self.This_win,text = 'dice/death saves')
-        diceandsavesmisc_HTD_BOX = Entry(diceandsavesmisc_LF,width = 5)             .grid(row=1,column=0)#.pack()
+        diceandsavesmisc_HTD_BOX = Entry(diceandsavesmisc_LF,width = 5,textvariable = self.diceandsavesmisc_HTD_BOX_VAR)             .grid(row=1,column=0)#.pack()
         diceandsavesmisc_HTD_LBL = Label(diceandsavesmisc_LF,text = 'hit dice') .grid(row=0,column=0)#.pack()
-        diceandsavesmisc_DTO_BOX = Entry(diceandsavesmisc_LF,width = 5)             .grid(row=3,column=0)#.pack()
+        diceandsavesmisc_DTO_BOX = Entry(diceandsavesmisc_LF,width = 5,textvariable = self.diceandsavesmisc_DTO_BOX_VAR)             .grid(row=3,column=0)#.pack()
         diceandsavesmisc_DTO_LBL = Label(diceandsavesmisc_LF,text = 'dice total')   .grid(row=2,column=0)#.pack()
         diceandsavesmisc_DSS_LBL = Label(diceandsavesmisc_LF,text = 'sucesses')        .grid(row=1,column=1)#.pack()
-        diceandsavesmisc_DS1_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=1,column=2)#.pack()
-        diceandsavesmisc_DS2_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=1,column=3)#.pack()
-        diceandsavesmisc_DS3_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=1,column=4)#.pack()
+        diceandsavesmisc_DS1_CHK = Checkbutton(diceandsavesmisc_LF,variable = self.diceandsavesmisc_DS1_CHK_VAR)        .grid(row=1,column=2)#.pack()
+        diceandsavesmisc_DS2_CHK = Checkbutton(diceandsavesmisc_LF,variable = self.diceandsavesmisc_DS2_CHK_VAR)        .grid(row=1,column=3)#.pack()
+        diceandsavesmisc_DS3_CHK = Checkbutton(diceandsavesmisc_LF,variable = self.diceandsavesmisc_DS3_CHK_VAR)        .grid(row=1,column=4)#.pack()
         diceandsavesmisc_DSF_LBL = Label(diceandsavesmisc_LF,text = 'fails')        .grid(row=2,column=1)#.pack()
-        diceandsavesmisc_DF1_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=2)#.pack()
-        diceandsavesmisc_DF2_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=3)#.pack()
-        diceandsavesmisc_DF3_CHK = Checkbutton(diceandsavesmisc_LF)        .grid(row=2,column=4)#.pack()
+        diceandsavesmisc_DF1_CHK = Checkbutton(diceandsavesmisc_LF,variable = self.diceandsavesmisc_DF1_CHK_VAR)        .grid(row=2,column=2)#.pack()
+        diceandsavesmisc_DF2_CHK = Checkbutton(diceandsavesmisc_LF,variable = self.diceandsavesmisc_DF2_CHK_VAR)        .grid(row=2,column=3)#.pack()
+        diceandsavesmisc_DF3_CHK = Checkbutton(diceandsavesmisc_LF,variable = self.diceandsavesmisc_DF3_CHK_VAR)        .grid(row=2,column=4)#.pack()
         diceandsavesmisc_LF.place(x=400,y=175)
 
         
@@ -426,12 +443,36 @@ class main_win:
     def Alt_loop(self):
         ##additional event loop code here
         #print(self.get_attackplusspells())
-        print(self.get_secondaryskills())
+        #print(self.get_secondaryskills())
+        print(self.get_ALL())
         self.set_primaryattributes([random.random(),random.random(),random.random(),random.random(),random.random(),random.random(),random.random()])
         ##end
         self.This_win.after(1500,self.Alt_loop)
 
-        
+    def array2csv(array):##from beelib
+        temp = ''
+        for fl in array:
+            print(fl)
+            temp += str(fl)+','
+        temp+=','
+        return temp
+    
+    def csv2array(csvstr):##may need os.isfile() or whatever it is to check file is in dir before declaring eofsame for array2csv      ##from beelib
+        arrayreturn = []
+        temp = ''
+        flag = False
+        for x in csvstr:#range(len(csvnames)):
+            if flag and (x==','):## ,, delimiter
+                break
+            if x ==',':
+                arrayreturn.append(temp)
+                temp = ''
+                flag = True
+            else:
+                temp+=x
+                flag = False
+        return arrayreturn
+
     def readfile(self,fname):
         try:
             f = open(fname,'r')
@@ -511,6 +552,7 @@ class main_win:
             self.charbase_name_FAC_BOX_VAR.get(),
             self.charbase_name_RAC_BOX_VAR.get(),
             self.charbase_name_EXP_BOX_VAR.get()]
+    
     def get_primaryattributes(self):
         return[ self.primaryattributes_STR_BOX_VAR.get(),
                 self.primaryattributes_DEX_BOX_VAR.get(),
@@ -529,7 +571,7 @@ class main_win:
                 self.primaryattributes_CHR_MOD_BOX_VAR.get()]
 
     def get_Perception(self):
-        return self.Perception_PER_BOX.get()
+        return self.Perception_PER_BOX_VAR.get()
     
     def get_inspiration(self):
         return self.inspiration_STR_BOX_VAR.get()
@@ -590,7 +632,27 @@ class main_win:
             self.secondaryskills_SRV_CHK_VAR.get()]]
             
     def get_hpmiscskills(self):
-        pass
+        ##hpmiscskills
+        return[
+        self.HPmiscskills_AMC_BOX_VAR.get(),
+        self.HPmiscskills_INI_BOX_VAR.get(),
+        self.HPmiscskills_SPD_BOX_VAR.get(),
+        self.HPmiscskills_HMX_BOX_VAR.get(),
+        self.HPmiscskills_HTP_BOX_VAR.get(),
+        self.HPmiscskills_HCR_BOX_VAR.get()]
+
+
+    def get_diceandsavesmisc(self):
+        #di
+        return[
+        self.diceandsavesmisc_HTD_BOX_VAR.get(),
+        self.diceandsavesmisc_DTO_BOX_VAR.get(),
+        self.diceandsavesmisc_DS1_CHK_VAR.get(),
+        self.diceandsavesmisc_DS2_CHK_VAR.get(),
+        self.diceandsavesmisc_DS3_CHK_VAR.get(),
+        self.diceandsavesmisc_DF1_CHK_VAR.get(),
+        self.diceandsavesmisc_DF2_CHK_VAR.get(),
+        self.diceandsavesmisc_DF3_CHK_VAR.get()]
 
     
     def get_attackplusspells_VAR(self):#[weaps/notes][data][weapno]
@@ -624,8 +686,21 @@ class main_win:
         return self.attackplusspells_MSC_TXT.get(1.0, 'end-1c')##char1 2 end
     def get_attackplusspells(self):
         return [self.get_attackplusspells_VAR(),self.get_attackplusspells_TXT()]
+    #text boxes additionally need to be added
     def get_ALL(self):
-        pass
+        return[
+        self.get_charbase_name(),
+        self.get_primaryattributes(),
+        self.get_rollmod(),
+        self.get_Perception(),
+        self.get_inspiration(),
+        self.get_proficiencybonus(),
+        self.get_savingthrows(),
+        self.get_secondaryskills(),
+        self.get_hpmiscskills(),
+        self.get_diceandsavesmisc(),
+        self.get_attackplusspells()]
+        #add txt boxes
 
 
     ##SETTING DATA
@@ -723,9 +798,70 @@ class main_win:
         self.secondaryskills_SOH_CHK_VAR.set(data[1][15])
         self.secondaryskills_STE_CHK_VAR.set(data[1][16])
         self.secondaryskills_SRV_CHK_VAR.set(data[1][17])
+
+    def set_hpmiscskills(self,data):
+        ##hpmiscskills
+        self.HPmiscskills_AMC_BOX_VAR.set(data[0])
+        self.HPmiscskills_INI_BOX_VAR.set(data[1])
+        self.HPmiscskills_SPD_BOX_VAR.set(data[2])
+        self.HPmiscskills_HMX_BOX_VAR.set(data[3])
+        self.HPmiscskills_HTP_BOX_VAR.set(data[4])
+        self.HPmiscskills_HCR_BOX_VAR.set(data[5])
+
+
+    def set_diceandsavesmisc(self,data):
+        #di
+        self.diceandsavesmisc_HTD_BOX_VAR.set(data[0])
+        self.diceandsavesmisc_DTO_BOX_VAR.set(data[1])
+        self.diceandsavesmisc_DS1_CHK_VAR.set(data[2])
+        self.diceandsavesmisc_DS2_CHK_VAR.set(data[3])
+        self.diceandsavesmisc_DS3_CHK_VAR.set(data[4])
+        self.diceandsavesmisc_DF1_CHK_VAR.set(data[5])
+        self.diceandsavesmisc_DF2_CHK_VAR.set(data[6])
+        self.diceandsavesmisc_DF3_CHK_VAR.set(data[7])
+
     
-    def set_ALL(self):
-        pass
+    def set_attackplusspells_VAR(self,data):#[weaps/notes][data][weapno]
+                                       #weapno
+                                       #1=name
+                                       #2=attack bonus
+                                       #3=damagetype
+        ##name
+                self.attackplusspells_WN1_BOX_VAR.set(data[0][0])
+                self.attackplusspells_WN2_BOX_VAR.set(data[0][1])
+                self.attackplusspells_WN3_BOX_VAR.set(data[0][2])
+                
+        ##atk bonus
+                self.attackplusspells_AB1_BOX_VAR.set(data[1][0])
+                self.attackplusspells_AB2_BOX_VAR.set(data[1][1])
+                self.attackplusspells_AB3_BOX_VAR.set(data[1][2])
+
+        ##damage/type
+                self.attackplusspells_DT1_BOX_VAR.set(data[2][0])
+                self.attackplusspells_DT2_BOX_VAR.set(data[2][1])
+                self.attackplusspells_DT3_BOX_VAR.set(data[2][2])
+        #text hack
+        #self.attackplusspells_MSC_TXT
+    def set_attackplusspells_TXT(self,data):
+        #text hack
+        return self.attackplusspells_MSC_TXT.set(data[0])##char1 2 end
+    def set_attackplusspells(self,data):
+        return [self.set_attackplusspells_VAR(data[0]),self.set_attackplusspells_TXT(data[1])]
+    #text boxes additionally need to be added
+    
+    def set_ALL(self,data):
+        self.set_charbase_name(data[0])
+        self.set_primaryattributes(data[1])
+        self.set_rollmod(data[2])
+        self.set_Perception(data[3])
+        self.set_inspiration(data[4])
+        self.set_proficiencybonus(data[5])
+        self.set_savingthrows(data[6])
+        self.set_secondaryskills(data[7])
+        self.set_hpmiscskills(data[8])
+        self.set_diceandsavesmisc(data[9])
+        self.set_attackplusspells(data[10])
+        #add txt boxes
     def get_a():
         pass
             
